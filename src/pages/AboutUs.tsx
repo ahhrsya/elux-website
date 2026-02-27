@@ -86,11 +86,21 @@ function AboutNavbar() {
 
 function Hero() {
     return (
-        <section className="min-h-[90vh] bg-[#0a0a0a] text-white flex flex-col justify-center items-center text-center px-4 pt-20 border-0 shadow-none">
-            <h1 className="text-[72px] leading-none tracking-tighter font-medium border-0 shadow-none font-display">
-                We Don't Just Design.<br />
-                We <span className="text-blue-500">Ship</span> Product Foundations.
-            </h1>
+        <section className="bg-white text-black pt-40 px-8 border-0 shadow-none">
+            <div className="max-w-7xl mx-auto border-0 shadow-none">
+                <h1 className="text-6xl md:text-[120px] leading-[0.9] tracking-tighter font-medium border-0 shadow-none font-display uppercase mb-16 max-w-6xl">
+                    Building Meaningful <br className="hidden md:block" />
+                    Digital Experiences.
+                </h1>
+
+                <div className="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-3xl border-0 shadow-none">
+                    <img
+                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
+                        alt="Creative Studio Interior"
+                        className="w-full h-full object-cover border-0 shadow-none"
+                    />
+                </div>
+            </div>
         </section>
     );
 }
