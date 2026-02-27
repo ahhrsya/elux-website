@@ -115,7 +115,7 @@ function DynamicHero({ stageCategory, serviceTitle, description }: Pick<ServiceD
                 <p className="text-blue-500 text-sm tracking-widest uppercase font-semibold mb-6 border-0 shadow-none">
                     {stageCategory}
                 </p>
-                <h1 className="text-[8vw] leading-none tracking-tighter border-0 shadow-none">
+                <h1 className="text-[72px] leading-none tracking-tighter border-0 shadow-none font-display">
                     {serviceTitle}
                 </h1>
                 <p className="text-gray-400 text-2xl max-w-3xl mt-8 font-medium leading-relaxed border-0 shadow-none">
@@ -133,7 +133,7 @@ function TheContext({ longDescription }: Pick<ServiceDetailProps, 'longDescripti
         <section className="bg-white py-32 px-8 text-black border-0 shadow-none">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-7xl mx-auto border-0 shadow-none">
                 <div className="md:col-span-5 h-fit sticky top-32 border-0 shadow-none">
-                    <h2 className="text-5xl font-medium tracking-tighter text-gray-900 leading-tight border-0 shadow-none">
+                    <h2 className="text-[64px] font-medium tracking-tighter text-gray-900 leading-tight border-0 shadow-none font-display">
                         {longDescription.header}
                     </h2>
                 </div>
@@ -182,7 +182,7 @@ function PragmaticProcess({ processSteps }: Pick<ServiceDetailProps, 'processSte
     return (
         <section className="bg-white py-32 px-8 border-0 shadow-none">
             <div className="max-w-4xl mx-auto border-0 shadow-none">
-                <h2 className="text-5xl font-medium tracking-tighter text-gray-900 text-center mb-16 border-0 shadow-none">How We Ship It.</h2>
+                <h2 className="text-[64px] font-medium tracking-tighter text-gray-900 text-center mb-16 border-0 shadow-none font-display">How We Ship It.</h2>
                 <div className="flex flex-col border-0 shadow-none">
                     {processSteps.map((step, index) => (
                         <div key={index} className="border-t border-gray-200 py-12 flex flex-col md:flex-row gap-8 shadow-none">
@@ -220,8 +220,8 @@ function FeaturedProof({ featuredProofImage }: Pick<ServiceDetailProps, 'feature
 // 7. MASSIVE CTA (Black Section)
 function MassiveCTA() {
     return (
-        <section className="bg-[#0a0a0a] text-white pb-40 pt-16 px-8 flex flex-col items-center justify-center text-center border-t border-gray-900 shadow-none">
-            <h2 className="text-[7vw] tracking-tighter font-medium leading-none mb-12 border-0 shadow-none">
+        <section className="bg-[#0a0a0a] text-white pb-40 pt-16 px-8 flex flex-col items-center justify-center text-center border-t border-gray-900 shadow-none font-display">
+            <h2 className="text-[72px] tracking-tighter font-medium leading-none mb-12 border-0 shadow-none">
                 Ready to ship your MVP?
             </h2>
             <button className="bg-blue-600 text-white rounded-full px-10 py-5 text-xl font-medium shadow-none hover:bg-blue-700 transition-colors border-0">

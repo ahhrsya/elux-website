@@ -33,7 +33,7 @@ function ArchiveHero() {
     return (
         <section className="min-h-[60vh] bg-[#0a0a0a] text-white flex flex-col justify-end pb-24 px-8 border-0 shadow-none">
             <div className="max-w-7xl mx-auto w-full border-0 shadow-none">
-                <h1 className="text-[8vw] leading-none tracking-tighter border-0 shadow-none">
+                <h1 className="text-[72px] leading-none tracking-tighter border-0 shadow-none font-display">
                     Work That Ships.
                 </h1>
                 <p className="max-w-3xl text-gray-400 text-2xl mt-8 font-medium leading-relaxed border-0 shadow-none">

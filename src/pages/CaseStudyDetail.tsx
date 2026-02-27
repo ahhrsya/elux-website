@@ -6,7 +6,7 @@ function ProjectHero() {
                 <p className="text-blue-500 tracking-widest text-sm uppercase mb-6 font-semibold border-0 shadow-none">
                     AI PLATFORMS / DASHBOARD
                 </p>
-                <h1 className="text-[9vw] leading-none tracking-tighter font-medium border-0 shadow-none">
+                <h1 className="text-[72px] leading-none tracking-tighter font-medium border-0 shadow-none font-display">
                     Upnova.
                 </h1>
                 <p className="max-w-3xl text-gray-400 text-2xl mt-8 font-medium leading-relaxed border-0 shadow-none mb-32">
@@ -34,7 +34,7 @@ function TheBrief() {
         <section className="bg-white py-32 px-8 text-black border-0 shadow-none">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-7xl mx-auto border-0 shadow-none">
                 <div className="md:col-span-4 h-fit sticky top-32 border-0 shadow-none">
-                    <h2 className="text-5xl font-medium tracking-tighter text-gray-900 leading-tight border-0 shadow-none">
+                    <h2 className="text-[64px] font-medium tracking-tighter text-gray-900 leading-tight border-0 shadow-none font-display">
                         The Challenge.
                     </h2>
                 </div>
@@ -137,7 +137,7 @@ function NextProject() {
             <h4 className="text-blue-500 tracking-widest text-sm uppercase font-semibold mb-8 border-0 shadow-none">
                 NEXT CASE STUDY
             </h4>
-            <h2 className="text-[7vw] font-medium tracking-tighter leading-none border-0 shadow-none group-hover:scale-105 transition-transform duration-700">
+            <h2 className="text-[120px] font-medium tracking-tighter leading-none border-0 shadow-none group-hover:scale-105 transition-transform duration-700 font-display">
                 Novus Medical
             </h2>
         </a>

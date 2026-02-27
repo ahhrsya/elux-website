@@ -203,7 +203,7 @@ export default function BentoGrid() {
                     <p className="text-[#2563EB] text-xs sm:text-sm font-semibold uppercase tracking-[0.3em] mb-4">
                         Deliverables
                     </p>
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0a0a0a] tracking-tight">
+                    <h2 className="text-[64px] font-bold text-[#0a0a0a] tracking-tight font-display">
                         What You Get<span className="text-[#2563EB]">.</span>
                     </h2>
                 </div>

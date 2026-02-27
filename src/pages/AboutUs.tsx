@@ -87,7 +87,7 @@ function AboutNavbar() {
 function Hero() {
     return (
         <section className="min-h-[90vh] bg-[#0a0a0a] text-white flex flex-col justify-center items-center text-center px-4 pt-20 border-0 shadow-none">
-            <h1 className="text-[8vw] leading-none tracking-tighter font-medium border-0 shadow-none">
+            <h1 className="text-[72px] leading-none tracking-tighter font-medium border-0 shadow-none font-display">
                 We Don't Just Design.<br />
                 We <span className="text-blue-500">Ship</span> Product Foundations.
             </h1>
@@ -128,7 +128,7 @@ function InformationAndMetrics() {
                         <h4 className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">INFORMATION</h4>
                     </div>
                     <div className="md:w-3/4 border-0 shadow-none">
-                        <h2 className="text-5xl md:text-7xl leading-[1.1] text-gray-900 font-medium tracking-tighter border-0 shadow-none">
+                        <h2 className="text-[64px] leading-[1.1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display">
                             Grabfy is an independent creative agency with more than 15 years of experiences. Worked with brand like Nike, Uber, Meta and more...
                         </h2>
                     </div>
@@ -174,7 +174,7 @@ function Awards() {
         <section className="bg-[#0a0a0a] text-white py-40 px-8 border-0 shadow-none">
             <div className="max-w-7xl mx-auto border-0 shadow-none">
                 <div className="flex justify-between items-start mb-32 border-0 shadow-none">
-                    <h2 className="text-[12vw] font-medium tracking-tighter leading-[0.8] border-0 shadow-none">
+                    <h2 className="text-[144px] font-medium tracking-tighter leading-[0.8] border-0 shadow-none font-display">
                         Awards
                     </h2>
                     <div className="flex items-center gap-2 border-0 shadow-none">
@@ -261,7 +261,7 @@ function WhyChooseUs() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-7xl mx-auto border-0 shadow-none">
                 <div className="md:col-span-5 h-fit sticky top-32 border-0 shadow-none">
                     <h4 className="text-xs font-semibold tracking-[0.2em] text-gray-500 uppercase mb-8 border-0 shadow-none">Why Us?</h4>
-                    <h2 className="text-5xl font-medium tracking-tighter text-gray-900 leading-tight border-0 shadow-none">
+                    <h2 className="text-[64px] font-medium tracking-tighter text-gray-900 leading-[1.1] border-0 shadow-none font-display">
                         Your Launch and Growth Come First.
                     </h2>
                 </div>
@@ -309,7 +309,7 @@ function Team() {
                         <span className="block w-2 h-2 bg-blue-600 rounded-full border-0 shadow-none"></span>
                         <h4 className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">OUR SQUAD</h4>
                     </div>
-                    <h2 className="text-[6vw] font-medium tracking-tighter leading-[1.1] text-gray-900 mb-10 border-0 shadow-none max-w-4xl">
+                    <h2 className="text-[64px] font-medium tracking-tighter leading-[1.1] text-gray-900 mb-10 border-0 shadow-none max-w-4xl font-display">
                         The Minds Behind <br /> the Craft.
                     </h2>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-0 shadow-none">
@@ -347,7 +347,7 @@ function Team() {
 function MassiveCTA() {
     return (
         <section className="bg-[#0a0a0a] text-white py-40 px-8 flex flex-col items-center justify-center text-center border-0 shadow-none">
-            <h2 className="text-[7vw] tracking-tighter font-medium leading-none mb-12 border-0 shadow-none">
+            <h2 className="text-[72px] tracking-tighter font-medium leading-[1.1] mb-12 border-0 shadow-none font-display">
                 Let's build it together.
             </h2>
             <button className="bg-blue-600 text-white rounded-full px-10 py-5 text-xl font-medium shadow-none hover:bg-blue-700 transition-transform hover:scale-105 duration-300 border-0">

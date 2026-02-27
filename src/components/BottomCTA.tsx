@@ -12,7 +12,7 @@ export default function BottomCTA() {
             </div>
 
             <div className="relative z-10 max-w-4xl mx-auto px-8 text-center">
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+                <h2 className="text-[64px] font-bold text-white tracking-tight leading-[1.1] font-display">
                     Ready to ship<br />your MVP<span className="text-[#2563EB]">?</span>
                 </h2>
                 <p className="text-gray-400 text-lg sm:text-xl mt-6 max-w-lg mx-auto">

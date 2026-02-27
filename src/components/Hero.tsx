@@ -34,7 +34,7 @@ export default function Hero() {
                 </p>
 
                 {/* H1 */}
-                <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.9]">
+                <h1 className="text-[72px] font-bold text-white tracking-tighter leading-[0.9] font-display">
                     MVP UX &<br />
                     UI Design<span className="text-[#2563EB]">.</span>
                 </h1>
