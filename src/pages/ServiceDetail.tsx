@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BottomCTA from '../components/BottomCTA';
 
 // Common Types for Reusability
 export interface ServiceDetailProps {
@@ -217,19 +218,7 @@ function FeaturedProof({ featuredProofImage }: Pick<ServiceDetailProps, 'feature
     );
 }
 
-// 7. MASSIVE CTA (Black Section)
-function MassiveCTA() {
-    return (
-        <section className="bg-[#0a0a0a] text-white pb-40 pt-16 px-8 flex flex-col items-center justify-center text-center border-t border-gray-900 shadow-none font-display">
-            <h2 className="text-[72px] tracking-tighter font-medium leading-none mb-12 border-0 shadow-none">
-                Ready to ship your MVP?
-            </h2>
-            <button className="bg-blue-600 text-white rounded-full px-10 py-5 text-xl font-medium shadow-none hover:bg-blue-700 transition-colors border-0">
-                Book Discovery Call
-            </button>
-        </section>
-    );
-}
+
 
 export default function ServiceDetail({
     stageCategory = "SEED STAGE",
@@ -269,7 +258,7 @@ export default function ServiceDetail({
                 <Deliverables deliverables={deliverables} />
                 <PragmaticProcess processSteps={processSteps} />
                 <FeaturedProof featuredProofImage={featuredProofImage} />
-                <MassiveCTA />
+                <BottomCTA />
             </main>
         </div>
     );

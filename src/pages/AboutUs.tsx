@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BottomCTA from '../components/BottomCTA';
 
 const servicesMenu = {
     SEED: [
@@ -354,18 +355,7 @@ function Team() {
     );
 }
 
-function MassiveCTA() {
-    return (
-        <section className="bg-[#0a0a0a] text-white py-40 px-8 flex flex-col items-center justify-center text-center border-0 shadow-none">
-            <h2 className="text-[72px] tracking-tighter font-medium leading-[1.1] mb-12 border-0 shadow-none font-display">
-                Let's build it together.
-            </h2>
-            <button className="bg-blue-600 text-white rounded-full px-10 py-5 text-xl font-medium shadow-none hover:bg-blue-700 transition-transform hover:scale-105 duration-300 border-0">
-                Book Discovery Call
-            </button>
-        </section>
-    );
-}
+
 
 export default function AboutUs() {
     return (
@@ -378,7 +368,7 @@ export default function AboutUs() {
                 <Arsenal />
                 <WhyChooseUs />
                 <Team />
-                <MassiveCTA />
+                <BottomCTA />
             </main>
         </div>
     );
