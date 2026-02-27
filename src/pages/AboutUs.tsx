@@ -1,30 +1,5 @@
-import { useState } from 'react';
 import BottomCTA from '../components/BottomCTA';
 import Navbar from '../components/Navbar';
-
-const servicesMenu = {
-    SEED: [
-        'MVP UX and UI Design',
-        'Clickable Prototype',
-        'Launch Ready Landing Page',
-        'No-Code MVP Build',
-        'Pitch and Demo Readiness',
-    ],
-    GROWTH: [
-        'UX Audit and Priorities',
-        'Brand and Visual Enhancement',
-        'Product Redesign',
-        'Dashboard and Data UX',
-        'Team Extension by Expert',
-    ],
-    SCALE: [
-        'UX Audit',
-        'Product Redesign',
-        'Team Extension',
-        'Dashboard and Data UX',
-        'Website Redesign',
-    ],
-};
 
 
 
