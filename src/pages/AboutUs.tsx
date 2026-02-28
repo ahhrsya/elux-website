@@ -5,19 +5,64 @@
 
 function Hero() {
     return (
-        <section className="bg-white text-black pt-32 pb-20 px-8 border-0 shadow-none">
+        <section className="bg-[#f9f9f8] text-black pt-32 pb-40 px-8 border-0 shadow-none overflow-hidden">
             <div className="max-w-7xl mx-auto border-0 shadow-none">
-                <h1 className="text-6xl md:text-[120px] leading-[0.9] tracking-tighter font-medium border-0 shadow-none font-display uppercase mb-16 max-w-6xl">
-                    Building Meaningful <br className="hidden md:block" />
-                    Digital Experiences.
-                </h1>
+                {/* Headline Section */}
+                <div className="mb-32 relative border-0 shadow-none">
+                    <h1 className="text-6xl md:text-[100px] lg:text-[120px] leading-[1] tracking-tighter font-medium border-0 shadow-none font-display uppercase">
+                        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-0 shadow-none">
+                            <span>WE CREATE</span>
+                            <div className="relative w-20 h-28 md:w-32 md:h-44 lg:w-40 lg:h-56 -rotate-6 transform translate-y-2 md:translate-y-4 shadow-2xl rounded-2xl overflow-hidden border-0">
+                                <img
+                                    src="/Users/user/.gemini/antigravity/brain/95318e01-1a84-4fac-949d-4a7bb4bba6a9/about_hero_floating_image_1772271479694.png"
+                                    alt="Designer at work"
+                                    className="w-full h-full object-cover border-0 shadow-none"
+                                />
+                            </div>
+                            <span>NNING</span>
+                        </div>
+                        <div className="border-0 shadow-none">
+                            <span className="text-[#7b9c7b]">BRANDING</span> FOR GROWING
+                        </div>
+                        <div className="border-0 shadow-none">
+                            BRANDS
+                        </div>
+                    </h1>
+                </div>
 
-                <div className="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-3xl border-0 shadow-none">
-                    <img
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
-                        alt="Creative Studio Interior"
-                        className="w-full h-full object-cover border-0 shadow-none"
-                    />
+                {/* Bottom Row Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end border-0 shadow-none">
+                    {/* Left: Action & Description */}
+                    <div className="lg:col-span-4 border-0 shadow-none">
+                        <a href="#" className="inline-flex items-center gap-2 group text-xl font-medium mb-10 border-0 shadow-none">
+                            <span className="border-b border-black">Book a Call</span>
+                            <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                        <p className="text-gray-600 text-lg leading-relaxed max-w-sm border-0 shadow-none">
+                            We help brands grow with strategic design, modern development, and results-driven digital solutions.
+                        </p>
+                    </div>
+
+                    {/* Right: Studio Image & Scroll Hint */}
+                    <div className="lg:col-span-8 border-0 shadow-none">
+                        <div className="flex justify-end mb-6 border-0 shadow-none px-4">
+                            <div className="flex items-center gap-2 text-sm text-gray-500 font-medium border-0 shadow-none">
+                                <span>Scroll to explore</span>
+                                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div className="w-full aspect-[16/9] overflow-hidden rounded-[3rem] border-0 shadow-sm">
+                            <img
+                                src="/Users/user/.gemini/antigravity/brain/95318e01-1a84-4fac-949d-4a7bb4bba6a9/about_hero_studio_image_1772271500465.png"
+                                alt="Elux Creative Studio"
+                                className="w-full h-full object-cover border-0 shadow-none grayscale hover:grayscale-0 transition-all duration-1000"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
