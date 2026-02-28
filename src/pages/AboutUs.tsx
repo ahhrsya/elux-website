@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-const heroVideo = 'https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-modern-office-with-large-windows-44310-large.mp4';
+import heroVideo from '../assets/4957781-hd_1920_1080_25fps.mp4';
 
 function Hero() {
     const [isPlaying, setIsPlaying] = useState(true);
