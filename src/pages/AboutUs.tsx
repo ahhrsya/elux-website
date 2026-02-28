@@ -18,16 +18,11 @@ function Hero() {
     return (
         <section className="bg-white text-black pt-40 pb-40 px-8 border-0 shadow-none overflow-hidden">
             <div className="max-w-7xl mx-auto border-0 shadow-none">
-                {/* Section Header logic like others */}
-                <div className="flex flex-col md:flex-row gap-16 md:gap-32 mb-24 border-0 shadow-none">
-                    <div className="md:w-1/4 border-0 shadow-none">
-                        <h4 className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">INTRODUCTION</h4>
-                    </div>
-                    <div className="md:w-3/4 border-0 shadow-none">
-                        <h1 className="text-5xl md:text-[72px] leading-[1.1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display uppercase">
-                            We Create Stunning <br /> Branding for Growing <br /> Brands
-                        </h1>
-                    </div>
+                {/* Headline Section */}
+                <div className="mb-24 border-0 shadow-none">
+                    <h1 className="text-5xl md:text-[84px] leading-[1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display uppercase max-w-5xl">
+                        We Create Stunning <br /> Branding for Growing <br /> Brands
+                    </h1>
                 </div>
 
                 {/* Bottom Row Section */}
