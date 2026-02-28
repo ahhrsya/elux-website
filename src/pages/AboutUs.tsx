@@ -247,22 +247,22 @@ function GrowthSolutions() {
                             key={index}
                             className="group relative bg-[#111111] border border-white/5 rounded-[40px] h-[480px] flex flex-col overflow-hidden transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
                         >
-                            {/* Top Part: Icon and Title (Stays Dark) */}
-                            <div className="p-12 flex-grow border-0 shadow-none">
-                                <div className="text-white mb-10">
+                            {/* Sliding Background Layer */}
+                            <div className="absolute bottom-0 left-0 w-full h-0 group-hover:h-full bg-white transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] z-0"></div>
+
+                            {/* Card Content Wrapper */}
+                            <div className="relative z-10 p-12 flex flex-col h-full pointer-events-none">
+                                <div className="text-white group-hover:text-black transition-colors duration-500 mb-10">
                                     <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3 3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z" />
                                         <path d="M18 12a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3 3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
                                     </svg>
                                 </div>
 
-                                <h3 className="text-[44px] font-medium tracking-tighter text-white font-display leading-[1.1]">
+                                <h3 className="text-[44px] font-medium tracking-tighter text-white group-hover:text-black transition-colors duration-500 font-display leading-[1.1] mb-auto">
                                     {item.title}
                                 </h3>
-                            </div>
 
-                            {/* Bottom Part: Description (Turns White on Hover) */}
-                            <div className="p-12 transition-all duration-500 group-hover:bg-white min-h-[160px] flex items-end">
                                 <p className="text-gray-400 group-hover:text-black transition-colors duration-500 text-lg leading-relaxed font-medium">
                                     {item.description}
                                 </p>
