@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import BottomCTA from '../components/BottomCTA';
 
 // Common Types for Reusability
 export interface ServiceDetailProps {
@@ -258,7 +257,7 @@ export default function ServiceDetail({
                 <Deliverables deliverables={deliverables} />
                 <PragmaticProcess processSteps={processSteps} />
                 <FeaturedProof featuredProofImage={featuredProofImage} />
-                <BottomCTA />
+
             </main>
         </div>
     );

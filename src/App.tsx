@@ -8,15 +8,9 @@ import ServiceDetail from './pages/ServiceDetail';
 import CaseStudiesArchive from './pages/CaseStudiesArchive';
 import CaseStudyDetail from './pages/CaseStudyDetail';
 
-function Home() {
-  return (
-    <>
-      <Hero />
-      <BentoGrid />
-      <BottomCTA />
-    </>
-  );
-}
+import Footer from './components/Footer';
+
+
 
 function App() {
   const [hash, setHash] = useState(window.location.hash || '#home');
@@ -32,13 +26,22 @@ function App() {
     if (hash.startsWith('#services')) return <ServiceDetail />;
     if (hash === '#case-studies') return <CaseStudiesArchive />;
     if (hash.startsWith('#case-study-detail')) return <CaseStudyDetail />;
-    return <Home />;
+    return (
+      <>
+        <Hero />
+        <BentoGrid />
+      </>
+    );
   };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
       <Navbar />
-      {renderPage()}
+      <main>
+        {renderPage()}
+        <BottomCTA />
+      </main>
+      <Footer />
     </div>
   );
 }

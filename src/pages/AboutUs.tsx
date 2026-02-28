@@ -1,4 +1,3 @@
-import BottomCTA from '../components/BottomCTA';
 import Navbar from '../components/Navbar';
 
 
@@ -363,7 +362,7 @@ export default function AboutUs() {
                 <WhyChooseUs />
                 <HowWeWork />
                 <Team />
-                <BottomCTA />
+
             </main>
         </div>
     );
