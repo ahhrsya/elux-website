@@ -1,6 +1,5 @@
-import Navbar from '../components/Navbar';
-import BottomCTA from '../components/BottomCTA';
-import Footer from '../components/Footer';
+
+
 
 
 
@@ -412,20 +411,14 @@ function Team() {
 
 export default function AboutUs() {
     return (
-        <div className="min-h-screen font-sans antialiased text-gray-900 bg-white border-0 shadow-none">
-            {/* Standard Global Navbar */}
-            <Navbar />
-            <main className="border-0 shadow-none">
-                <Hero />
-                <InformationAndMetrics />
-                <GrowthSolutions />
-                <HowWeWork />
-                <StackIntegrations />
-                <Team />
-                <Awards />
-                <BottomCTA />
-            </main>
-            <Footer />
+        <div className="bg-white border-0 shadow-none">
+            <Hero />
+            <InformationAndMetrics />
+            <GrowthSolutions />
+            <HowWeWork />
+            <Awards />
+            <Team />
+            <StackIntegrations />
         </div>
     );
 }

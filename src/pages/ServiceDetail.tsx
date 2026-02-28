@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+
 
 // Common Types for Reusability
 export interface ServiceDetailProps {
@@ -23,89 +24,9 @@ export interface ServiceDetailProps {
     featuredProofImage?: string;
 }
 
-const servicesMenu = {
-    SEED: [
-        'MVP UX and UI Design',
-        'Clickable Prototype',
-        'Launch Ready Landing Page',
-        'No-Code MVP Build',
-        'Pitch and Demo Readiness',
-    ],
-    GROWTH: [
-        'UX Audit and Priorities',
-        'Brand and Visual Enhancement',
-        'Product Redesign',
-        'Dashboard and Data UX',
-        'Team Extension by Expert',
-    ],
-    SCALE: [
-        'UX Audit',
-        'Product Redesign',
-        'Team Extension',
-        'Dashboard and Data UX',
-        'Website Redesign',
-    ],
-};
 
-function GlobalNavbar() {
-    const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-8 py-4 bg-black/80 backdrop-blur-md border-b border-gray-900 shadow-none transition-colors duration-300">
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <a href="#" className="text-white text-xl font-bold tracking-tight border-0 shadow-none">eluxspace</a>
 
-                <div className="hidden lg:flex items-center gap-8 shadow-none border-0">
-                    <a href="#" className="text-[13px] text-gray-300 uppercase tracking-widest font-medium hover:text-white transition-colors border-0 shadow-none">About</a>
-
-                    <div
-                        className="relative py-2 shadow-none border-0"
-                        onMouseEnter={() => setActiveMenu('services')}
-                        onMouseLeave={() => setActiveMenu(null)}
-                    >
-                        <button className={`text-[13px] uppercase tracking-widest font-medium transition-colors flex items-center gap-1 shadow-none border-0 ${activeMenu === 'services' ? 'text-white' : 'text-gray-300 hover:text-white'}`}>
-                            Services
-                        </button>
-                    </div>
-
-                    <a href="#" className="text-[13px] text-gray-300 uppercase tracking-widest font-medium hover:text-white transition-colors border-0 shadow-none">Industries</a>
-                    <a href="#" className="text-[13px] text-gray-300 uppercase tracking-widest font-medium hover:text-white transition-colors border-0 shadow-none">Case Studies</a>
-                    <a href="#" className="text-[13px] text-gray-300 uppercase tracking-widest font-medium hover:text-white transition-colors border-0 shadow-none">Contact</a>
-                </div>
-
-                <button className="bg-blue-600 text-white text-sm font-medium rounded-full px-6 py-2 shadow-none hover:scale-105 transition-transform flex items-center justify-center border-0">
-                    Book Discovery Call
-                </button>
-            </div>
-
-            {/* Mega Menu */}
-            <div
-                className={`absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-none transition-all duration-300 ease-in-out ${activeMenu === 'services' ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'}`}
-                onMouseEnter={() => setActiveMenu('services')}
-                onMouseLeave={() => setActiveMenu(null)}
-            >
-                <div className="max-w-7xl mx-auto px-8 py-12 shadow-none border-0">
-                    <div className="grid grid-cols-3 gap-12 shadow-none border-0">
-                        {Object.entries(servicesMenu).map(([category, links]) => (
-                            <div key={category} className="shadow-none border-0">
-                                <h4 className="text-xs font-semibold tracking-[0.2em] text-gray-500 uppercase mb-6 border-0 shadow-none">{category}</h4>
-                                <ul className="space-y-3 shadow-none border-0">
-                                    {links.map(link => (
-                                        <li key={link} className="shadow-none border-0">
-                                            <a href="#" className="text-[15px] text-gray-900 shadow-none border-0 hover:text-[#2563EB] transition-colors block py-1">
-                                                {link}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </nav>
-    );
-}
 
 // 2. DYNAMIC HERO (Black Section)
 function DynamicHero({ stageCategory, serviceTitle, description }: Pick<ServiceDetailProps, 'stageCategory' | 'serviceTitle' | 'description'>) {
@@ -246,7 +167,6 @@ export default function ServiceDetail({
 }: ServiceDetailProps) {
     return (
         <div className="font-sans antialiased bg-white border-0 shadow-none">
-            <GlobalNavbar />
             <main className="border-0 shadow-none">
                 <DynamicHero
                     stageCategory={stageCategory}
