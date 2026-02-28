@@ -1,8 +1,25 @@
 import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+const heroVideo = 'https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-modern-office-with-large-windows-44310-large.mp4';
 
 function Hero() {
     const [isPlaying, setIsPlaying] = useState(true);
     const videoRef = useRef<HTMLVideoElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    // Transforms for the video scaling effect
+    // As progress goes from 0 to 1, scale goes from 0.4 to 1
+    const scale = useTransform(scrollYProgress, [0, 0.8], [0.6, 1]);
+    const width = useTransform(scrollYProgress, [0, 0.8], ["60%", "100%"]);
+
+    // Header parallax/fade
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -16,65 +33,78 @@ function Hero() {
     };
 
     return (
-        <section className="bg-white text-black pt-40 pb-40 px-8 border-0 shadow-none overflow-hidden">
-            <div className="max-w-7xl mx-auto border-0 shadow-none">
-                {/* Headline Section */}
-                <div className="mb-24 border-0 shadow-none">
-                    <h1 className="text-5xl md:text-[84px] leading-[1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-5xl">
-                        We Create Stunning <br /> Branding for Growing <br /> Brands
-                    </h1>
-                </div>
+        <div ref={containerRef} className="relative h-[300vh] bg-white">
+            <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden border-0 shadow-none">
 
-                {/* Bottom Row Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end border-0 shadow-none">
-                    {/* Left: Action & Description */}
-                    <div className="lg:col-span-4 border-0 shadow-none">
-                        <a href="#" className="inline-flex items-center gap-2 group text-xl font-medium mb-10 border-0 shadow-none">
-                            <span className="border-b border-black">Book a Call</span>
-                            <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                {/* Main Content (Headline) */}
+                <motion.div
+                    style={{ opacity: headerOpacity, y: headerY }}
+                    className="absolute inset-0 z-10 flex flex-col justify-center px-8 max-w-7xl mx-auto w-full pointer-events-none"
+                >
+                    <div className="border-0 shadow-none -translate-y-20">
+                        <h1 className="text-5xl md:text-[110px] leading-[1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-7xl">
+                            We Create Stunning <br /> Branding for Growing <br /> Brands
+                        </h1>
+                    </div>
+                </motion.div>
+
+                {/* Left Bottom Section - Action */}
+                <motion.div
+                    style={{ opacity: headerOpacity }}
+                    className="absolute bottom-20 left-8 z-10 max-w-sm pointer-events-none md:block hidden"
+                >
+                    <a href="#" className="inline-flex items-center gap-2 group text-xl font-medium mb-10 border-0 shadow-none pointer-events-auto">
+                        <span className="border-b border-black">Book a Call</span>
+                        <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                    <p className="text-gray-600 text-lg font-medium leading-relaxed border-0 shadow-none">
+                        We help brands grow with strategic design, modern development, and results-driven digital solutions.
+                    </p>
+                </motion.div>
+
+                {/* Growing Video Section */}
+                <motion.div
+                    style={{
+                        scale,
+                        width,
+                        borderRadius: 0,
+                        boxShadow: 'none'
+                    }}
+                    className="relative aspect-[16/9] md:h-[80vh] w-full overflow-hidden bg-gray-100 border-0 shadow-none pointer-events-auto"
+                >
+                    <video
+                        ref={videoRef}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                    >
+                        <source src={heroVideo} type="video/quicktime" />
+                        <source src={heroVideo} type="video/mp4" />
+                    </video>
+
+                    {/* Play/Pause Button overlay */}
+                    <button
+                        onClick={togglePlay}
+                        className="absolute bottom-10 right-10 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:bg-white/40 transition-all z-20 group/btn shadow-xl"
+                        aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
+                    >
+                        {isPlaying ? (
+                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                             </svg>
-                        </a>
-                        <p className="text-gray-600 text-lg font-medium leading-relaxed max-w-sm border-0 shadow-none">
-                            We help brands grow with strategic design, modern development, and results-driven digital solutions.
-                        </p>
-                    </div>
-
-                    {/* Right: Video Section */}
-                    <div className="lg:col-span-8 border-0 shadow-none relative">
-                        <div className="w-full aspect-[16/9] overflow-hidden rounded-none border-0 shadow-none relative group bg-gray-100">
-                            <video
-                                ref={videoRef}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                            >
-                                <source src="https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-modern-office-with-large-windows-44310-large.mp4" type="video/mp4" />
-                            </video>
-
-                            {/* Play/Pause Button overlay */}
-                            <button
-                                onClick={togglePlay}
-                                className="absolute bottom-10 right-10 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:bg-white/40 transition-all z-20 group/btn shadow-xl"
-                                aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
-                            >
-                                {isPlaying ? (
-                                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                                    </svg>
-                                ) : (
-                                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
-                                )}
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                        ) : (
+                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        )}
+                    </button>
+                </motion.div>
             </div>
-        </section>
+        </div>
     );
 }
 
