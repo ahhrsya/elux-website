@@ -243,9 +243,9 @@ function HowWeWork() {
 
     return (
         <section className="bg-[#f8f8f8] py-40 px-8 border-0 shadow-none">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 border-0 shadow-none">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 border-0 shadow-none">
                 {/* Left Column: Info (Sticky-like) */}
-                <div className="lg:col-span-4 border-0 shadow-none h-fit lg:sticky lg:top-32">
+                <div className="border-0 shadow-none h-fit lg:sticky lg:top-32">
                     <div className="flex items-center gap-2 mb-8 border-0 shadow-none">
                         <span className="w-1.5 h-1.5 bg-blue-600 rounded-full border-0 shadow-none"></span>
                         <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">PROCESS</span>
@@ -267,11 +267,11 @@ function HowWeWork() {
                 </div>
 
                 {/* Right Column: Cards */}
-                <div className="lg:col-span-8 flex flex-col gap-6 border-0 shadow-none">
+                <div className="flex flex-col gap-6 border-0 shadow-none">
                     {steps.map((step, index) => (
                         <div
                             key={index}
-                            className="bg-[#DDE5D6] p-12 rounded-[40px] border-0 shadow-none flex flex-col justify-between h-[320px] hover:scale-[1.01] transition-transform duration-500"
+                            className="bg-white p-12 rounded-[40px] border border-gray-100 shadow-sm flex flex-col justify-between h-[320px] hover:scale-[1.01] transition-transform duration-500"
                         >
                             <span className="text-[10px] font-bold text-gray-900 tracking-[0.2em] uppercase border-0 shadow-none">
                                 {step.number}
