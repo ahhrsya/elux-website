@@ -1,33 +1,33 @@
-
-
-
-
+import { useState, useRef } from 'react';
 
 function Hero() {
+    const [isPlaying, setIsPlaying] = useState(true);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const togglePlay = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
+
     return (
-        <section className="bg-[#f9f9f8] text-black pt-32 pb-40 px-8 border-0 shadow-none overflow-hidden">
+        <section className="bg-white text-black pt-40 pb-40 px-8 border-0 shadow-none overflow-hidden">
             <div className="max-w-7xl mx-auto border-0 shadow-none">
-                {/* Headline Section */}
-                <div className="mb-32 relative border-0 shadow-none">
-                    <h1 className="text-6xl md:text-[100px] lg:text-[120px] leading-[1] tracking-tighter font-medium border-0 shadow-none font-display uppercase">
-                        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-0 shadow-none">
-                            <span>WE CREATE</span>
-                            <div className="relative w-20 h-28 md:w-32 md:h-44 lg:w-40 lg:h-56 -rotate-6 transform translate-y-2 md:translate-y-4 shadow-2xl rounded-2xl overflow-hidden border-0">
-                                <img
-                                    src="/Users/user/.gemini/antigravity/brain/95318e01-1a84-4fac-949d-4a7bb4bba6a9/about_hero_floating_image_1772271479694.png"
-                                    alt="Designer at work"
-                                    className="w-full h-full object-cover border-0 shadow-none"
-                                />
-                            </div>
-                            <span>NNING</span>
-                        </div>
-                        <div className="border-0 shadow-none">
-                            <span className="text-[#7b9c7b]">BRANDING</span> FOR GROWING
-                        </div>
-                        <div className="border-0 shadow-none">
-                            BRANDS
-                        </div>
-                    </h1>
+                {/* Section Header logic like others */}
+                <div className="flex flex-col md:flex-row gap-16 md:gap-32 mb-24 border-0 shadow-none">
+                    <div className="md:w-1/4 border-0 shadow-none">
+                        <h4 className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">INTRODUCTION</h4>
+                    </div>
+                    <div className="md:w-3/4 border-0 shadow-none">
+                        <h1 className="text-5xl md:text-[72px] leading-[1.1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display uppercase">
+                            We Create Stunning <br /> Branding for Growing <br /> Brands
+                        </h1>
+                    </div>
                 </div>
 
                 {/* Bottom Row Section */}
@@ -40,27 +40,41 @@ function Hero() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </a>
-                        <p className="text-gray-600 text-lg leading-relaxed max-w-sm border-0 shadow-none">
+                        <p className="text-gray-600 text-lg font-medium leading-relaxed max-w-sm border-0 shadow-none">
                             We help brands grow with strategic design, modern development, and results-driven digital solutions.
                         </p>
                     </div>
 
-                    {/* Right: Studio Image & Scroll Hint */}
-                    <div className="lg:col-span-8 border-0 shadow-none">
-                        <div className="flex justify-end mb-6 border-0 shadow-none px-4">
-                            <div className="flex items-center gap-2 text-sm text-gray-500 font-medium border-0 shadow-none">
-                                <span>Scroll to explore</span>
-                                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div className="w-full aspect-[16/9] overflow-hidden rounded-[3rem] border-0 shadow-sm">
-                            <img
-                                src="/Users/user/.gemini/antigravity/brain/95318e01-1a84-4fac-949d-4a7bb4bba6a9/about_hero_studio_image_1772271500465.png"
-                                alt="Elux Creative Studio"
-                                className="w-full h-full object-cover border-0 shadow-none grayscale hover:grayscale-0 transition-all duration-1000"
-                            />
+                    {/* Right: Video Section */}
+                    <div className="lg:col-span-8 border-0 shadow-none relative">
+                        <div className="w-full aspect-[16/9] overflow-hidden rounded-[3rem] border-0 shadow-sm relative group bg-gray-100">
+                            <video
+                                ref={videoRef}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                            >
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-modern-office-with-large-windows-44310-large.mp4" type="video/mp4" />
+                            </video>
+
+                            {/* Play/Pause Button overlay */}
+                            <button
+                                onClick={togglePlay}
+                                className="absolute bottom-10 right-10 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:bg-white/40 transition-all z-20 group/btn shadow-xl"
+                                aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
+                            >
+                                {isPlaying ? (
+                                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                                    </svg>
+                                ) : (
+                                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                )}
+                            </button>
                         </div>
                     </div>
                 </div>
