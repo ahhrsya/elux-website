@@ -20,7 +20,7 @@ function Hero() {
             <div className="max-w-7xl mx-auto border-0 shadow-none">
                 {/* Headline Section */}
                 <div className="mb-24 border-0 shadow-none">
-                    <h1 className="text-5xl md:text-[84px] leading-[1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display uppercase max-w-5xl">
+                    <h1 className="text-5xl md:text-[84px] leading-[1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-5xl">
                         We Create Stunning <br /> Branding for Growing <br /> Brands
                     </h1>
                 </div>
@@ -42,7 +42,7 @@ function Hero() {
 
                     {/* Right: Video Section */}
                     <div className="lg:col-span-8 border-0 shadow-none relative">
-                        <div className="w-full aspect-[16/9] overflow-hidden rounded-[3rem] border-0 shadow-sm relative group bg-gray-100">
+                        <div className="w-full aspect-[16/9] overflow-hidden rounded-none border-0 shadow-none relative group bg-gray-100">
                             <video
                                 ref={videoRef}
                                 autoPlay
