@@ -210,6 +210,14 @@ function GrowthSolutions() {
         {
             title: "Email Marketing",
             description: "Design and execute high-converting email sequences that drive measurable growth."
+        },
+        {
+            title: "Social Media Strategy",
+            description: "Build a strong brand presence and foster community across all major platforms."
+        },
+        {
+            title: "Performance Marketing",
+            description: "Optimize your ad spend and maximize ROI with data-driven advertising campaigns."
         }
     ];
 
@@ -233,26 +241,32 @@ function GrowthSolutions() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 border-0 shadow-none">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 border-0 shadow-none">
                     {solutions.map((item, index) => (
                         <div
                             key={index}
-                            className="group relative bg-[#111111] border border-white/5 rounded-3xl h-[450px] flex flex-col transition-all duration-500 hover:bg-white hover:border-white p-10"
+                            className="group relative bg-[#111111] border border-white/5 rounded-[40px] h-[480px] flex flex-col overflow-hidden transition-all duration-500 hover:border-white/20 hover:scale-[1.02]"
                         >
-                            <div className="text-white group-hover:text-black transition-colors duration-500 mb-8">
-                                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3 3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z" />
-                                    <path d="M18 12a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3 3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
-                                </svg>
+                            {/* Top Part: Icon and Title (Stays Dark) */}
+                            <div className="p-12 flex-grow border-0 shadow-none">
+                                <div className="text-white mb-10">
+                                    <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3 3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z" />
+                                        <path d="M18 12a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3 3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
+                                    </svg>
+                                </div>
+
+                                <h3 className="text-[44px] font-medium tracking-tighter text-white font-display leading-[1.1]">
+                                    {item.title}
+                                </h3>
                             </div>
 
-                            <h3 className="text-4xl font-medium tracking-tighter text-white group-hover:text-black transition-colors duration-500 font-display leading-tight mb-auto">
-                                {item.title}
-                            </h3>
-
-                            <p className="text-gray-500 group-hover:text-gray-800 transition-colors duration-500 text-lg leading-relaxed font-medium">
-                                {item.description}
-                            </p>
+                            {/* Bottom Part: Description (Turns White on Hover) */}
+                            <div className="p-12 transition-all duration-500 group-hover:bg-white min-h-[160px] flex items-end">
+                                <p className="text-gray-400 group-hover:text-black transition-colors duration-500 text-lg leading-relaxed font-medium">
+                                    {item.description}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>
