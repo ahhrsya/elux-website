@@ -145,71 +145,118 @@ function Awards() {
     );
 }
 
-function Arsenal() {
+function StackIntegrations() {
+    const integrations = [
+        { name: 'Mailchimp', icon: 'https://cdn.worldvectorlogo.com/logos/mailchimp-freddie-icon.svg' },
+        { name: 'Notion', icon: 'https://cdn.worldvectorlogo.com/logos/notion-2.svg' },
+        { name: 'Slack', icon: 'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg' },
+        { name: 'Zapier', icon: 'https://cdn.worldvectorlogo.com/logos/zapier-2.svg' },
+        { name: 'Asana', icon: 'https://cdn.worldvectorlogo.com/logos/asana-1.svg' },
+        { name: 'Evergreen', icon: 'https://www.vectorlogo.zone/logos/evergreen/evergreen-icon.svg' }
+    ];
+
     return (
-        <section className="bg-[#111111] py-24 overflow-hidden border-y border-gray-800 shadow-none w-full">
-            <div className="max-w-7xl mx-auto px-8 mb-16 text-center border-0 shadow-none">
-                <h3 className="text-xs font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">Powered by Industry Standards</h3>
+        <section className="bg-white py-32 px-8 border-0 shadow-none overflow-hidden">
+            <div className="max-w-7xl mx-auto text-center border-0 shadow-none mb-20">
+                <span className="text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase mb-4 block">INTEGRATION</span>
+                <h2 className="text-[56px] md:text-[72px] font-medium tracking-tighter text-gray-900 leading-[1.1] mb-6 font-display">
+                    Simply connect the apps to <br /> boost your profile
+                </h2>
+                <p className="text-gray-500 text-xl max-w-2xl mx-auto border-0 shadow-none">
+                    Seamlessly sync your favorite tools and streamline your workflow with our growing ecosystem of integrations.
+                </p>
             </div>
 
-            <div className="relative flex overflow-hidden w-full border-0 shadow-none">
-                <div className="flex whitespace-nowrap animate-marquee items-center border-0 shadow-none">
-                    {/* First set */}
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Figma</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Framer</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Webflow</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Tailwind CSS</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Relume</span>
-                    <span className="text-gray-600 text-3xl ml-8 mr-12 shadow-none border-0">•</span>
+            <div className="flex justify-center gap-4 flex-wrap max-w-5xl mx-auto mb-16 border-0 shadow-none">
+                {integrations.map((app) => (
+                    <div
+                        key={app.name}
+                        className="bg-[#f9f9f9] border border-gray-100 rounded-2xl p-6 flex items-center gap-4 min-w-[200px] hover:shadow-md transition-shadow duration-300"
+                    >
+                        <img src={app.icon} alt={app.name} className="w-8 h-8 object-contain" />
+                        <span className="text-lg font-bold text-gray-700">{app.name}</span>
+                    </div>
+                ))}
+            </div>
 
-                    {/* Copied set for seamless loop */}
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Figma</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Framer</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Webflow</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Tailwind CSS</span>
-                    <span className="text-gray-600 text-3xl mx-8 shadow-none border-0">•</span>
-                    <span className="text-gray-400 text-3xl font-medium tracking-widest uppercase mx-12 shadow-none border-0">Relume</span>
-                    <span className="text-gray-600 text-3xl ml-8 mr-12 shadow-none border-0">•</span>
-                </div>
+            <div className="flex justify-center border-0 shadow-none">
+                <button className="bg-black text-white px-10 py-4 rounded-full font-bold text-sm tracking-widest hover:scale-105 transition-transform">
+                    CONNECT APPS
+                </button>
             </div>
         </section>
     );
 }
 
-function WhyChooseUs() {
+function GrowthSolutions() {
+    const solutions = [
+        {
+            title: "Content Marketing",
+            description: "Create and distribute valuable content to attract and engage your ideal audience."
+        },
+        {
+            title: "Marketing Automation",
+            description: "Streamline marketing processes and deliver personalized experiences at scale."
+        },
+        {
+            title: "Influencer Marketing",
+            description: "Partner with trusted voices to amplify your brand's reach and credibility."
+        },
+        {
+            title: "Email Marketing",
+            description: "Design and execute high-converting email sequences that drive measurable growth."
+        }
+    ];
+
     return (
-        <section className="bg-white py-32 px-8 border-0 shadow-none">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-7xl mx-auto border-0 shadow-none">
-                <div className="md:col-span-5 h-fit sticky top-32 border-0 shadow-none">
-                    <h4 className="text-xs font-semibold tracking-[0.2em] text-gray-500 uppercase mb-8 border-0 shadow-none">Why Us?</h4>
-                    <h2 className="text-[64px] font-medium tracking-tighter text-gray-900 leading-[1.1] border-0 shadow-none font-display">
-                        Your Launch and Growth Come First.
+        <section className="bg-[#0a0a0a] py-40 px-8 border-0 shadow-none">
+            <div className="max-w-7xl mx-auto border-0 shadow-none">
+                {/* Header Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 border-0 shadow-none items-end">
+                    <h2 className="text-[72px] md:text-[96px] font-medium tracking-tighter text-white leading-[0.9] font-display">
+                        Solutions Tailored <br /> for Your Growth
                     </h2>
+                    <div className="border-0 shadow-none flex flex-col items-start lg:items-end">
+                        <p className="text-gray-400 text-xl max-w-md lg:text-right mb-10 leading-relaxed font-medium">
+                            We fuel bold ideas, driving them forward with sharp strategy and precision execution.
+                        </p>
+                        <button className="bg-[#d4ff3f] text-black px-8 py-4 rounded-full font-bold text-sm tracking-widest flex items-center gap-3 hover:scale-105 transition-transform mb-2">
+                            GET STARTED
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div className="md:col-span-7 flex flex-col border-0 shadow-none">
-                    <div className="border-t border-gray-200 py-12 shadow-none">
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight border-0 shadow-none">Build-ready UX and UI</h3>
-                        <p className="text-xl text-gray-600 leading-relaxed font-normal border-0 shadow-none">We design for real implementation with responsive layouts.</p>
-                    </div>
-                    <div className="border-t border-gray-200 py-12 shadow-none">
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight border-0 shadow-none">Pragmatic, metrics-first thinking</h3>
-                        <p className="text-xl text-gray-600 leading-relaxed font-normal border-0 shadow-none">Every decision ties back to outcomes and conversion.</p>
-                    </div>
-                    <div className="border-t border-gray-200 py-12 shadow-none">
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight border-0 shadow-none">No black box process</h3>
-                        <p className="text-xl text-gray-600 leading-relaxed font-normal border-0 shadow-none">Clear ownership, visible progress, daily updates.</p>
-                    </div>
-                    <div className="border-t border-b border-gray-200 py-12 shadow-none">
-                        <h3 className="text-2xl font-semibold mb-4 text-gray-900 tracking-tight border-0 shadow-none">Direct collaboration</h3>
-                        <p className="text-xl text-gray-600 leading-relaxed font-normal border-0 shadow-none">No layers in between. Work directly with the doers.</p>
-                    </div>
+
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 border-0 shadow-none">
+                    {solutions.map((item, index) => (
+                        <div
+                            key={index}
+                            className="group relative bg-[#111111] border border-white/5 rounded-3xl h-[450px] flex flex-col overflow-hidden transition-all duration-500 hover:border-white/20"
+                        >
+                            {/* Top Content (Fixed) */}
+                            <div className="p-10 flex-grow border-0 shadow-none">
+                                <div className="text-white mb-8">
+                                    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3zM6 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3 3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z" />
+                                        <path d="M18 12a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3 3 3 0 0 1 3-3h6a3 3 0 0 1 3 3z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-4xl font-medium tracking-tighter text-white font-display leading-tight">
+                                    {item.title}
+                                </h3>
+                            </div>
+
+                            {/* Bottom Content (Hover transitions to white) */}
+                            <div className="relative p-10 pt-0 mt-auto border-0 shadow-none overflow-hidden transition-all duration-500 group-hover:bg-white min-h-[160px] flex items-end">
+                                <p className="text-gray-500 text-lg leading-relaxed font-medium transition-colors duration-500 group-hover:text-black relative z-10">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
@@ -358,8 +405,8 @@ export default function AboutUs() {
                 <Hero />
                 <InformationAndMetrics />
                 <Awards />
-                <Arsenal />
-                <WhyChooseUs />
+                <StackIntegrations />
+                <GrowthSolutions />
                 <HowWeWork />
                 <Team />
 
