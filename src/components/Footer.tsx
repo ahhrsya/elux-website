@@ -6,15 +6,15 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="md:col-span-5">
                         <div className="flex items-center gap-3 mb-8">
-                            <div className="w-10 h-10 rounded-full bg-[#8B5CF6] flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_40%,_black_40%)]"></div>
-                                <svg className="w-8 h-8 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 14.5c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5z" />
+                            <div className="w-10 h-10 rounded-full bg-[#8B5CF6] flex items-center justify-center overflow-hidden">
+                                <svg className="w-6 h-6 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 14.5c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5z" fill="currentColor" />
+                                    <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" fill="#8B5CF6" />
                                 </svg>
                             </div>
                             <span className="text-2xl font-bold tracking-tight">eluxspace</span>
                         </div>
-                        <p className="text-gray-400 text-xl max-w-sm leading-relaxed">
+                        <p className="text-gray-400 text-lg max-w-[340px] leading-relaxed">
                             We help startups and companies design digital products people love and trust.
                         </p>
                     </div>
@@ -23,29 +23,29 @@ export default function Footer() {
                     <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
                         <div>
                             <h4 className="text-xl font-bold mb-6">Find Us On</h4>
-                            <ul className="space-y-4 text-gray-400 text-sm font-medium">
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Clutch</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Design Rush</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Contra</a></li>
+                            <ul className="space-y-3 text-gray-400 text-sm font-medium">
+                                <li><a href="#" className="hover:text-white transition-colors">Clutch</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Design Rush</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Contra</a></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="text-xl font-bold mb-6">Product</h4>
-                            <ul className="space-y-4 text-gray-400 text-sm font-medium">
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">UI8</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Creative Market</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Craftwork</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Gumroad</a></li>
+                            <ul className="space-y-3 text-gray-400 text-sm font-medium">
+                                <li><a href="#" className="hover:text-white transition-colors">UI8</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Creative Market</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Craftwork</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Gumroad</a></li>
                             </ul>
                         </div>
                         <div className="col-span-2 md:col-span-1">
                             <h4 className="text-xl font-bold mb-6">Our Social</h4>
-                            <ul className="space-y-4 text-gray-400 text-sm font-medium">
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Linkedin Page</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Dribbble</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Bahance</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Instagram</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors uppercase tracking-widest">Layers</a></li>
+                            <ul className="space-y-3 text-gray-400 text-sm font-medium">
+                                <li><a href="#" className="hover:text-white transition-colors">Linkedin Page</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Dribbble</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Bahance</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
+                                <li><a href="#" className="hover:text-white transition-colors">Layers</a></li>
                             </ul>
                         </div>
                     </div>
