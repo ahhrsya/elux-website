@@ -1,4 +1,6 @@
 import Navbar from '../components/Navbar';
+import BottomCTA from '../components/BottomCTA';
+import Footer from '../components/Footer';
 
 
 
@@ -416,13 +418,14 @@ export default function AboutUs() {
             <main className="border-0 shadow-none">
                 <Hero />
                 <InformationAndMetrics />
-                <Awards />
-                <StackIntegrations />
                 <GrowthSolutions />
                 <HowWeWork />
+                <StackIntegrations />
                 <Team />
-
+                <Awards />
+                <BottomCTA />
             </main>
+            <Footer />
         </div>
     );
 }
