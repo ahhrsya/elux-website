@@ -217,6 +217,81 @@ function WhyChooseUs() {
     );
 }
 
+function HowWeWork() {
+    const steps = [
+        {
+            number: '• Step 01',
+            title: 'Discover',
+            description: 'We dive deep into your goals, audience, and brand to map out the perfect direction for your MVP.'
+        },
+        {
+            number: '• Step 02',
+            title: 'Design',
+            description: 'We create high-fidelity interfaces that signal credibility and conversion from day one.'
+        },
+        {
+            number: '• Step 03',
+            title: 'Develop',
+            description: 'Seamless transition from high-fidelity design to launch-ready code with absolute precision.'
+        },
+        {
+            number: '• Step 04',
+            title: 'Deliver',
+            description: 'Launching your product and iterating based on real-world performance and growth metrics.'
+        }
+    ];
+
+    return (
+        <section className="bg-[#f8f8f8] py-40 px-8 border-0 shadow-none">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 border-0 shadow-none">
+                {/* Left Column: Info (Sticky-like) */}
+                <div className="lg:col-span-4 border-0 shadow-none h-fit lg:sticky lg:top-32">
+                    <div className="flex items-center gap-2 mb-8 border-0 shadow-none">
+                        <span className="w-1.5 h-1.5 bg-blue-600 rounded-full border-0 shadow-none"></span>
+                        <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase border-0 shadow-none">PROCESS</span>
+                    </div>
+                    <h2 className="text-[64px] font-medium tracking-tighter text-gray-900 leading-[1] mb-10 border-0 shadow-none font-display">
+                        How Our Service <br /> Process Works
+                    </h2>
+                    <p className="text-gray-500 text-lg mb-12 max-w-sm border-0 shadow-none">
+                        No surprises — just structured milestones, clear updates, and open communication from start to finish.
+                    </p>
+                    <button className="group flex items-center gap-4 bg-black text-white px-8 py-5 rounded-full hover:scale-105 transition-all duration-300 border-0 shadow-none">
+                        <span className="text-sm font-bold uppercase tracking-widest border-0 shadow-none">Contact Now</span>
+                        <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center transition-colors group-hover:bg-blue-600 border-0 shadow-none">
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+
+                {/* Right Column: Cards */}
+                <div className="lg:col-span-8 flex flex-col gap-6 border-0 shadow-none">
+                    {steps.map((step, index) => (
+                        <div
+                            key={index}
+                            className="bg-[#DDE5D6] p-12 rounded-[40px] border-0 shadow-none flex flex-col justify-between h-[320px] hover:scale-[1.01] transition-transform duration-500"
+                        >
+                            <span className="text-[10px] font-bold text-gray-900 tracking-[0.2em] uppercase border-0 shadow-none">
+                                {step.number}
+                            </span>
+                            <div className="border-0 shadow-none">
+                                <h3 className="text-[48px] font-medium tracking-tighter text-gray-900 mb-6 border-0 shadow-none font-display leading-tight">
+                                    {step.title}
+                                </h3>
+                                <p className="text-gray-700 text-lg max-w-xl border-0 shadow-none">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
 function Team() {
     const team = [
         { name: 'DARRELL STEWARD', role: 'CONTENT STRATEGIST', image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=800&q=80' },
@@ -286,6 +361,7 @@ export default function AboutUs() {
                 <Awards />
                 <Arsenal />
                 <WhyChooseUs />
+                <HowWeWork />
                 <Team />
                 <BottomCTA />
             </main>
