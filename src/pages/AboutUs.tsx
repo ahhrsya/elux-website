@@ -12,21 +12,20 @@ function Hero() {
         offset: ["start start", "end end"]
     });
 
-    // 1. Header fades out early (0 to 0.25)
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-    const headerY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
+    // 1. Natural Scroll Phase (0 to 0.4)
+    // Headline moves up and fades out
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.4], [0, -150]);
+    const actionOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
-    // 2. Bottom Action & Description fades out early too
-    const actionOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-
-    // 3. Video expansion starts after header is mostly gone (0.3 to 0.8)
-    // We'll use a centered video and transform its offset
-    const videoScale = useTransform(scrollYProgress, [0.3, 0.8], [0.4, 1]);
-    const videoX = useTransform(scrollYProgress, [0.3, 0.8], ["30vw", "0vw"]);
-    const videoY = useTransform(scrollYProgress, [0.3, 0.8], ["25vh", "0vh"]);
-    const videoWidth = useTransform(scrollYProgress, [0.3, 0.8], ["40vw", "100vw"]);
-    const videoHeight = useTransform(scrollYProgress, [0.3, 0.8], ["30vh", "100vh"]);
-    const videoZIndex = useTransform(scrollYProgress, [0, 0.3, 0.31], [0, 0, 50]);
+    // 2. Video Locking & Growth Phase (Starts at 0.4)
+    // Increasing initial size and height to avoid "gepeng" look
+    const videoScale = useTransform(scrollYProgress, [0.4, 0.9], [0.55, 1]);
+    const videoX = useTransform(scrollYProgress, [0.4, 0.9], ["30vw", "0vw"]);
+    const videoY = useTransform(scrollYProgress, [0.4, 0.9], ["30vh", "0vh"]);
+    const videoWidth = useTransform(scrollYProgress, [0.4, 0.9], ["50vw", "100vw"]);
+    const videoHeight = useTransform(scrollYProgress, [0.4, 0.9], ["60vh", "100vh"]);
+    const videoZIndex = useTransform(scrollYProgress, [0, 0.4, 0.41], [0, 0, 50]);
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -40,7 +39,7 @@ function Hero() {
     };
 
     return (
-        <div ref={containerRef} className="relative h-[400vh] bg-white">
+        <div ref={containerRef} className="relative h-[500vh] bg-white">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-white">
 
                 {/* Headline Section */}
@@ -48,14 +47,14 @@ function Hero() {
                     style={{ opacity: headerOpacity, y: headerY }}
                     className="absolute inset-0 z-10 flex flex-col justify-center px-8 max-w-7xl mx-auto w-full pointer-events-none"
                 >
-                    <div className="border-0 shadow-none -translate-y-32">
+                    <div className="border-0 shadow-none -translate-y-40">
                         <h1 className="text-5xl md:text-[110px] leading-[0.9] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-7xl uppercase">
                             We Create Stunning <br /> Branding for Growing <br /> Brands
                         </h1>
                     </div>
                 </motion.div>
 
-                {/* Left Bottom Section - Action (Fades out) */}
+                {/* Left Bottom Section - Action */}
                 <motion.div
                     style={{ opacity: actionOpacity }}
                     className="absolute bottom-20 left-8 z-10 max-w-sm pointer-events-none hidden md:block"
