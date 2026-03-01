@@ -12,19 +12,21 @@ function Hero() {
         offset: ["start start", "end end"]
     });
 
-    // 1. Natural Scroll Phase (0 to 0.4)
-    // Headline moves up and fades out
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-    const headerY = useTransform(scrollYProgress, [0, 0.4], [0, -150]);
-    const actionOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+    // Interaction Mapping
+    // Natural Scroll Phase (0 to 0.3): Everything moves up normally.
+    // Sticky Expansion Phase (0.3 to 0.8): Video fills screen.
 
-    // 2. Video Locking & Growth Phase (Starts at 0.4)
-    // Increasing initial size and height to avoid "gepeng" look
-    const videoScale = useTransform(scrollYProgress, [0.4, 0.9], [0.55, 1]);
-    const videoX = useTransform(scrollYProgress, [0.4, 0.9], ["30vw", "0vw"]);
-    const videoY = useTransform(scrollYProgress, [0.4, 0.9], ["30vh", "0vh"]);
+    // Headline/Action Fade & Move
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.4], [0, -200]);
+
+    // Growing Video Section - Initial state is large and cornered
+    // Starts expanding after 0.3 progress
+    const videoScale = useTransform(scrollYProgress, [0.4, 0.9], [0.6, 1]);
+    const videoX = useTransform(scrollYProgress, [0.4, 0.9], ["25vw", "0vw"]);
+    const videoY = useTransform(scrollYProgress, [0.4, 0.9], ["25vh", "0vh"]);
     const videoWidth = useTransform(scrollYProgress, [0.4, 0.9], ["50vw", "100vw"]);
-    const videoHeight = useTransform(scrollYProgress, [0.4, 0.9], ["60vh", "100vh"]);
+    const videoHeight = useTransform(scrollYProgress, [0.4, 0.9], ["65vh", "100vh"]);
     const videoZIndex = useTransform(scrollYProgress, [0, 0.4, 0.41], [0, 0, 50]);
 
     const togglePlay = () => {
@@ -39,35 +41,35 @@ function Hero() {
     };
 
     return (
-        <div ref={containerRef} className="relative h-[500vh] bg-white">
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-white">
+        <div ref={containerRef} className="relative h-[500vh] bg-white pt-40">
+            <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-white">
 
-                {/* Headline Section */}
+                {/* Aligned Headline & Subheadline Grid */}
                 <motion.div
                     style={{ opacity: headerOpacity, y: headerY }}
-                    className="absolute inset-0 z-10 flex flex-col justify-center px-8 max-w-7xl mx-auto w-full pointer-events-none"
+                    className="absolute inset-0 z-10 px-8 max-w-7xl mx-auto w-full pointer-events-none mt-40"
                 >
-                    <div className="border-0 shadow-none -translate-y-40">
-                        <h1 className="text-5xl md:text-[110px] leading-[0.9] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-7xl uppercase">
-                            We Create Stunning <br /> Branding for Growing <br /> Brands
-                        </h1>
-                    </div>
-                </motion.div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-0 shadow-none">
+                        {/* Headline - Left */}
+                        <div className="lg:col-span-8 border-0 shadow-none">
+                            <h1 className="text-5xl md:text-[100px] leading-[0.9] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display uppercase">
+                                We Create Stunning <br /> Branding for Growing <br /> Brands
+                            </h1>
+                        </div>
 
-                {/* Left Bottom Section - Action */}
-                <motion.div
-                    style={{ opacity: actionOpacity }}
-                    className="absolute bottom-20 left-8 z-10 max-w-sm pointer-events-none hidden md:block"
-                >
-                    <a href="#" className="inline-flex items-center gap-2 group text-xl font-medium mb-10 border-0 shadow-none pointer-events-auto">
-                        <span className="border-b border-black">Book a Call</span>
-                        <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                    </a>
-                    <p className="text-gray-600 text-lg font-medium leading-relaxed border-0 shadow-none">
-                        We help brands grow with strategic design, modern development, and results-driven digital solutions.
-                    </p>
+                        {/* Subheadline/Action - Right (Sejajar) */}
+                        <div className="lg:col-span-4 border-0 shadow-none pt-4 lg:pt-10">
+                            <a href="#" className="inline-flex items-center gap-2 group text-xl font-medium mb-8 border-0 shadow-none pointer-events-auto">
+                                <span className="border-b border-black">Book a Call</span>
+                                <svg className="w-5 h-5 transform transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                            <p className="text-gray-600 text-lg font-medium leading-relaxed border-0 shadow-none">
+                                We help brands grow with strategic design, modern development, and results-driven digital solutions.
+                            </p>
+                        </div>
+                    </div>
                 </motion.div>
 
                 {/* Expanding Video Section */}
@@ -80,7 +82,7 @@ function Hero() {
                         height: videoHeight,
                         zIndex: videoZIndex
                     }}
-                    className="relative overflow-hidden bg-gray-100 border-0 shadow-none"
+                    className="relative overflow-hidden bg-gray-100 border-0 shadow-none rounded-none"
                 >
                     <video
                         ref={videoRef}
