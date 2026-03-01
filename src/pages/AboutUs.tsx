@@ -12,14 +12,21 @@ function Hero() {
         offset: ["start start", "end end"]
     });
 
-    // Transforms for the video scaling effect
-    // As progress goes from 0 to 1, scale goes from 0.4 to 1
-    const scale = useTransform(scrollYProgress, [0, 0.8], [0.6, 1]);
-    const width = useTransform(scrollYProgress, [0, 0.8], ["60%", "100%"]);
+    // 1. Header fades out early (0 to 0.25)
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
 
-    // Header parallax/fade
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-    const headerY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
+    // 2. Bottom Action & Description fades out early too
+    const actionOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+
+    // 3. Video expansion starts after header is mostly gone (0.3 to 0.8)
+    // We'll use a centered video and transform its offset
+    const videoScale = useTransform(scrollYProgress, [0.3, 0.8], [0.4, 1]);
+    const videoX = useTransform(scrollYProgress, [0.3, 0.8], ["30vw", "0vw"]);
+    const videoY = useTransform(scrollYProgress, [0.3, 0.8], ["25vh", "0vh"]);
+    const videoWidth = useTransform(scrollYProgress, [0.3, 0.8], ["40vw", "100vw"]);
+    const videoHeight = useTransform(scrollYProgress, [0.3, 0.8], ["30vh", "100vh"]);
+    const videoZIndex = useTransform(scrollYProgress, [0, 0.3, 0.31], [0, 0, 50]);
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -33,25 +40,25 @@ function Hero() {
     };
 
     return (
-        <div ref={containerRef} className="relative h-[300vh] bg-white">
-            <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden border-0 shadow-none">
+        <div ref={containerRef} className="relative h-[400vh] bg-white">
+            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-white">
 
-                {/* Main Content (Headline) */}
+                {/* Headline Section */}
                 <motion.div
                     style={{ opacity: headerOpacity, y: headerY }}
                     className="absolute inset-0 z-10 flex flex-col justify-center px-8 max-w-7xl mx-auto w-full pointer-events-none"
                 >
-                    <div className="border-0 shadow-none -translate-y-20">
-                        <h1 className="text-5xl md:text-[110px] leading-[1] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-7xl">
+                    <div className="border-0 shadow-none -translate-y-32">
+                        <h1 className="text-5xl md:text-[110px] leading-[0.9] text-gray-900 font-medium tracking-tighter border-0 shadow-none font-display max-w-7xl uppercase">
                             We Create Stunning <br /> Branding for Growing <br /> Brands
                         </h1>
                     </div>
                 </motion.div>
 
-                {/* Left Bottom Section - Action */}
+                {/* Left Bottom Section - Action (Fades out) */}
                 <motion.div
-                    style={{ opacity: headerOpacity }}
-                    className="absolute bottom-20 left-8 z-10 max-w-sm pointer-events-none md:block hidden"
+                    style={{ opacity: actionOpacity }}
+                    className="absolute bottom-20 left-8 z-10 max-w-sm pointer-events-none hidden md:block"
                 >
                     <a href="#" className="inline-flex items-center gap-2 group text-xl font-medium mb-10 border-0 shadow-none pointer-events-auto">
                         <span className="border-b border-black">Book a Call</span>
@@ -64,15 +71,17 @@ function Hero() {
                     </p>
                 </motion.div>
 
-                {/* Growing Video Section */}
+                {/* Expanding Video Section */}
                 <motion.div
                     style={{
-                        scale,
-                        width,
-                        borderRadius: 0,
-                        boxShadow: 'none'
+                        scale: videoScale,
+                        x: videoX,
+                        y: videoY,
+                        width: videoWidth,
+                        height: videoHeight,
+                        zIndex: videoZIndex
                     }}
-                    className="relative aspect-[16/9] md:h-[80vh] w-full overflow-hidden bg-gray-100 border-0 shadow-none pointer-events-auto"
+                    className="relative overflow-hidden bg-gray-100 border-0 shadow-none"
                 >
                     <video
                         ref={videoRef}
@@ -82,14 +91,13 @@ function Hero() {
                         playsInline
                         className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                     >
-                        <source src={heroVideo} type="video/quicktime" />
                         <source src={heroVideo} type="video/mp4" />
                     </video>
 
                     {/* Play/Pause Button overlay */}
                     <button
                         onClick={togglePlay}
-                        className="absolute bottom-10 right-10 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:bg-white/40 transition-all z-20 group/btn shadow-xl"
+                        className="absolute bottom-10 right-10 w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 hover:bg-white/40 transition-all z-20 group"
                         aria-label={isPlaying ? 'Pause Video' : 'Play Video'}
                     >
                         {isPlaying ? (
