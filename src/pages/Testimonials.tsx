@@ -500,31 +500,31 @@ export default function Testimonials() {
                         >
                             {v3Testimonials.map((item, i) => (
                                 <div key={i} className="flex-shrink-0 w-[95%] md:w-[850px] snap-center">
-                                    <div className={`${item.type === 'text' ? 'bg-[#111111] p-6 border border-white/5' : ''} rounded-2xl h-[400px] md:h-[480px] flex gap-6 relative group overflow-hidden`}>
+                                    <div className={`${item.type === 'text' ? 'bg-[#111111] p-6 border border-white/5 h-auto md:h-[480px] flex-col md:flex-row' : 'h-[400px] md:h-[480px]'} rounded-2xl flex gap-6 relative group overflow-hidden`}>
                                         {item.type === 'text' ? (
                                             <>
                                                 {/* Card Content Top Left - Precisely like screenshot */}
                                                 <div className="flex-1 flex flex-col justify-between">
                                                     <div>
                                                         {/* Logo Box */}
-                                                        <div className="bg-[#1a1a1a] rounded-lg p-3 w-fit mb-12 border border-white/5">
+                                                        <div className="bg-[#1a1a1a] rounded-lg p-3 w-fit mb-6 md:mb-12 border border-white/5">
                                                             <div className="text-[10px] font-bold text-white uppercase leading-none">
                                                                 #{item.logo}<br />{item.logo}
                                                             </div>
                                                         </div>
                                                         {/* Quote */}
-                                                        <p className="text-white text-xl md:text-2xl font-medium leading-relaxed tracking-tight max-w-[90%]">
+                                                        <p className="text-white text-xl md:text-2xl font-medium leading-relaxed tracking-tight max-w-[90%] mb-8 md:mb-0">
                                                             "{item.quote}"
                                                         </p>
                                                     </div>
                                                     {/* Author */}
-                                                    <div>
+                                                    <div className="mb-6 md:mb-0">
                                                         <h4 className="text-white font-bold text-lg">{item.name}</h4>
                                                         <p className="text-zinc-500 text-sm mt-1">{item.role}</p>
                                                     </div>
                                                 </div>
-                                                {/* Right Image */}
-                                                <div className="w-[45%] h-full relative overflow-hidden rounded-2xl">
+                                                {/* Image */}
+                                                <div className="w-full md:w-[45%] h-64 md:h-full relative overflow-hidden rounded-2xl">
                                                     <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                                                 </div>
                                             </>
@@ -618,12 +618,12 @@ export default function Testimonials() {
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200" alt="Marcus" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/20" />
                             <div className="absolute bottom-10 left-10">
-                                <h4 className="text-white font-bold text-4xl mb-1">Marcus Thorne</h4>
-                                <p className="text-white/60 text-sm font-bold uppercase tracking-[0.2em]">Aventi Corp</p>
+                                <h4 className="text-white font-bold text-2xl md:text-4xl mb-1">Marcus Thorne</h4>
+                                <p className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Aventi Corp</p>
                             </div>
                             <div className="absolute bottom-10 right-10">
-                                <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                                    <svg className="w-6 h-6 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white fill-current ml-0.5" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </div>
@@ -633,9 +633,9 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#E9E4F0] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden h-full"
+                            className="bg-[#E9E4F0] rounded-[2rem] p-8 md:p-10 flex flex-col justify-between relative group overflow-hidden h-full min-h-[250px] md:min-h-0"
                         >
-                            <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
+                            <p className="text-gray-900 text-base md:text-lg font-medium leading-[1.6] tracking-tight">
                                 "Elux has revolutionized how we handle our backend operations. The automation they've implemented is seamless."
                             </p>
                             <div>
@@ -648,9 +648,9 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#F8F8F8] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden border border-gray-100 h-full"
+                            className="bg-[#F8F8F8] rounded-[2rem] p-8 md:p-10 flex flex-col justify-between relative group overflow-hidden border border-gray-100 h-full min-h-[250px] md:min-h-0"
                         >
-                            <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
+                            <p className="text-gray-900 text-base md:text-lg font-medium leading-[1.6] tracking-tight">
                                 "The level of customization and support we received was beyond expectations. A truly premium experience."
                             </p>
                             <div>
@@ -667,12 +667,12 @@ export default function Testimonials() {
                             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Elena" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/30" />
                             <div className="absolute bottom-10 left-10">
-                                <h4 className="text-white font-bold text-4xl mb-1">Elena Rodriguez</h4>
-                                <p className="text-white/60 text-sm font-bold uppercase tracking-[0.2em]">Solaris Tech</p>
+                                <h4 className="text-white font-bold text-2xl md:text-4xl mb-1">Elena Rodriguez</h4>
+                                <p className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Solaris Tech</p>
                             </div>
                             <div className="absolute bottom-10 right-10">
-                                <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                                    <svg className="w-6 h-6 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white fill-current ml-0.5" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </div>
@@ -688,12 +688,12 @@ export default function Testimonials() {
                             <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="David" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/30" />
                             <div className="absolute bottom-10 left-10">
-                                <h4 className="text-white font-bold text-4xl mb-1">David Kim</h4>
-                                <p className="text-white/60 text-sm font-bold uppercase tracking-[0.2em]">CloudScale</p>
+                                <h4 className="text-white font-bold text-2xl md:text-4xl mb-1">David Kim</h4>
+                                <p className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">CloudScale</p>
                             </div>
                             <div className="absolute bottom-10 right-10">
-                                <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
-                                    <svg className="w-6 h-6 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white fill-current ml-0.5" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z" />
                                     </svg>
                                 </div>
@@ -703,9 +703,9 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#D9DEE1] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden h-full"
+                            className="bg-[#D9DEE1] rounded-[2rem] p-8 md:p-10 flex flex-col justify-between relative group overflow-hidden h-full min-h-[250px] md:min-h-0"
                         >
-                            <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
+                            <p className="text-gray-900 text-base md:text-lg font-medium leading-[1.6] tracking-tight">
                                 "Helping us scale faster than any internal team could. Their expertise in automation is unmatched in the industry."
                             </p>
                             <div>
