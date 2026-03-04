@@ -41,7 +41,7 @@ const v3Testimonials = [
     {
         type: 'text',
         logo: 'simmons',
-        quote: "Through our partnership with Elux, we've embedded agents that [autonomously] handle the drafting, review, and negotiation of NDAs, DPAs, service agreements, IMAs, and more. These agents are live and already delivering real impact.",
+        quote: "Through our partnership with Elux, we've embedded agents that handle the drafting and negotiation of complex NDAs and service agreements autonomously.",
         name: "Lucy Shurwood",
         role: "Partner, Simmons & Simmons",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
@@ -57,7 +57,7 @@ const v3Testimonials = [
     {
         type: 'text',
         logo: 'velo',
-        quote: "The ability to scale our creative production with Elux has been a game changer for our global marketing teams. Pure efficiency and strategic outcomes at every level of our workflow.",
+        quote: "Scaling our creative production with Elux has been a game changer. We achieved seamless integration and high-impact outcomes across our global teams.",
         name: "Sarah Chen",
         role: "Global Creative Director, Velo",
         image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
@@ -73,7 +73,7 @@ const v3Testimonials = [
     {
         type: 'text',
         logo: 'nexus',
-        quote: "Elux doesn't just build interfaces; they build systems that think. Our user engagement metrics have skyrocketed since the relaunch, and the maintenance is now virtually automated.",
+        quote: "Elux builds systems that think. Our user engagement metrics have skyrocketed since the relaunch, and maintenance is now virtually automated.",
         name: "James Wilson",
         role: "CEO, Nexus Digital",
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
@@ -529,24 +529,24 @@ export default function Testimonials() {
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className="w-full h-full relative group">
-                                                <img src={item.thumbnail} alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                                                <div className="absolute inset-0 bg-black/40" />
+                                            <div className="w-full h-full relative cursor-pointer">
+                                                <img src={item.thumbnail} alt={item.name} className="absolute inset-0 w-full h-full object-cover" />
+                                                <div className="absolute inset-0 bg-black/30" />
 
-                                                {/* Play Button */}
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                                {/* Play Button - Pojok Kanan Bawah */}
+                                                <div className="absolute bottom-8 right-8">
+                                                    <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
                                                         <svg className="w-6 h-6 text-white fill-current ml-1" viewBox="0 0 24 24">
                                                             <path d="M8 5v14l11-7z" />
                                                         </svg>
                                                     </div>
                                                 </div>
 
-                                                {/* Info Overlay */}
-                                                <div className="absolute bottom-10 left-10">
-                                                    <h4 className="text-white font-bold text-3xl mb-2">{item.name}</h4>
+                                                {/* Info Overlay - Pojok Kiri Bawah */}
+                                                <div className="absolute bottom-8 left-8">
+                                                    <h4 className="text-white font-bold text-3xl mb-1">{item.name}</h4>
                                                     <p className="text-[#2563EB] text-sm font-bold tracking-[0.2em] uppercase">{item.company}</p>
-                                                    <p className="text-white/40 text-xs mt-1">{item.role}</p>
+                                                    <p className="text-white/40 text-xs mt-0.5">{item.role}</p>
                                                 </div>
                                             </div>
                                         )}
