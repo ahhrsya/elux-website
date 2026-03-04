@@ -168,6 +168,9 @@ export default function Navbar() {
                         <a href="#case-studies" className="text-[13px] text-gray-300 uppercase tracking-[0.15em] font-medium hover:text-white transition-colors duration-200">
                             Case Studies
                         </a>
+                        <a href="#testimonials" className="text-[13px] text-gray-300 uppercase tracking-[0.15em] font-medium hover:text-white transition-colors duration-200">
+                            Testimonials
+                        </a>
                         <a href="#home" className="text-[13px] text-gray-300 uppercase tracking-[0.15em] font-medium hover:text-white transition-colors duration-200">
                             Contact
                         </a>
@@ -274,7 +277,10 @@ export default function Navbar() {
                         <a href="#case-studies" onClick={() => setMobileOpen(false)} className="block text-gray-300 text-lg font-medium py-4 border-b border-white/5 hover:text-white transition-colors">
                             Case Studies
                         </a>
-                        <a href="#home" onClick={() => setMobileOpen(false)} className="block text-gray-300 text-lg font-medium py-4 border-b border-white/5 hover:text-white transition-colors">
+                        <a href="#testimonials" onClick={() => setMobileOpen(false)} className="block text-gray-300 text-lg font-medium py-4 border-b border-white/5 hover:text-white transition-colors">
+                            Testimonials
+                        </a>
+                        <a href="#contact" onClick={() => setMobileOpen(false)} className="block text-gray-300 text-lg font-medium py-4 border-b border-white/5 hover:text-white transition-colors">
                             Contact
                         </a>
 

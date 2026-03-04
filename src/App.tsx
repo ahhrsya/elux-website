@@ -7,6 +7,7 @@ import AboutUs from './pages/AboutUs';
 import ServiceDetail from './pages/ServiceDetail';
 import CaseStudiesArchive from './pages/CaseStudiesArchive';
 import CaseStudyDetail from './pages/CaseStudyDetail';
+import Testimonials from './pages/Testimonials';
 
 import Footer from './components/Footer';
 
@@ -26,6 +27,7 @@ function App() {
     if (hash.startsWith('#services')) return <ServiceDetail />;
     if (hash === '#case-studies') return <CaseStudiesArchive />;
     if (hash.startsWith('#case-study-detail')) return <CaseStudyDetail />;
+    if (hash === '#testimonials') return <Testimonials />;
     return (
       <>
         <Hero />
