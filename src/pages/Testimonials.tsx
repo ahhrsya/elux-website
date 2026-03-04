@@ -39,28 +39,12 @@ const testimonials: Testimonial[] = [
 
 const v3Testimonials = [
     {
-        type: 'text',
-        logo: 'simmons',
-        quote: "Through our partnership with Elux, we've embedded agents that handle the drafting and negotiation of complex NDAs and service agreements autonomously.",
-        name: "Lucy Shurwood",
-        role: "Partner, Simmons & Simmons",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-    },
-    {
         type: 'video',
         name: "Marcus Thorne",
         company: "Aventi Corp",
         role: "Chief Operating Officer",
         thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
         videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
-    },
-    {
-        type: 'text',
-        logo: 'velo',
-        quote: "Scaling our creative production with Elux has been a game changer. We achieved seamless integration and high-impact outcomes across our global teams.",
-        name: "Sarah Chen",
-        role: "Global Creative Director, Velo",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
     },
     {
         type: 'video',
@@ -71,20 +55,36 @@ const v3Testimonials = [
         videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
     },
     {
-        type: 'text',
-        logo: 'nexus',
-        quote: "Elux builds systems that think. Our user engagement metrics have skyrocketed since the relaunch, and maintenance is now virtually automated.",
-        name: "James Wilson",
-        role: "CEO, Nexus Digital",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
-    },
-    {
         type: 'video',
         name: "David Kim",
         company: "CloudScale",
         role: "Product Manager",
         thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
         videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+    },
+    {
+        type: 'text',
+        logo: 'simmons',
+        quote: "Through our partnership with Elux, we've embedded agents that handle the drafting and negotiation of complex NDAs and service agreements autonomously.",
+        name: "Lucy Shurwood",
+        role: "Partner, Simmons & Simmons",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        type: 'text',
+        logo: 'velo',
+        quote: "Scaling our creative production with Elux has been a game changer. We achieved seamless integration and high-impact outcomes across our global teams.",
+        name: "Sarah Chen",
+        role: "Global Creative Director, Velo",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        type: 'text',
+        logo: 'nexus',
+        quote: "Elux builds systems that think. Our user engagement metrics have skyrocketed since the relaunch, and maintenance is now virtually automated.",
+        name: "James Wilson",
+        role: "CEO, Nexus Digital",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
     }
 ];
 
@@ -500,7 +500,7 @@ export default function Testimonials() {
                         >
                             {v3Testimonials.map((item, i) => (
                                 <div key={i} className="flex-shrink-0 w-[95%] md:w-[850px] snap-center">
-                                    <div className="bg-[#111111] rounded-2xl border border-white/5 p-6 h-[400px] md:h-[480px] flex gap-6 relative group overflow-hidden">
+                                    <div className={`${item.type === 'text' ? 'bg-[#111111] p-6 border border-white/5' : ''} rounded-2xl h-[400px] md:h-[480px] flex gap-6 relative group overflow-hidden`}>
                                         {item.type === 'text' ? (
                                             <>
                                                 {/* Card Content Top Left - Precisely like screenshot */}
@@ -534,7 +534,7 @@ export default function Testimonials() {
                                                 <div className="absolute inset-0 bg-black/30" />
 
                                                 {/* Play Button - Pojok Kanan Bawah */}
-                                                <div className="absolute bottom-8 right-8">
+                                                <div className="absolute bottom-10 right-10">
                                                     <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
                                                         <svg className="w-6 h-6 text-white fill-current ml-1" viewBox="0 0 24 24">
                                                             <path d="M8 5v14l11-7z" />
@@ -543,10 +543,10 @@ export default function Testimonials() {
                                                 </div>
 
                                                 {/* Info Overlay - Pojok Kiri Bawah */}
-                                                <div className="absolute bottom-8 left-8">
-                                                    <h4 className="text-white font-bold text-3xl mb-1">{item.name}</h4>
-                                                    <p className="text-[#2563EB] text-sm font-bold tracking-[0.2em] uppercase">{item.company}</p>
-                                                    <p className="text-white/40 text-xs mt-0.5">{item.role}</p>
+                                                <div className="absolute bottom-10 left-10">
+                                                    <h4 className="text-white font-bold text-4xl mb-1">{item.name}</h4>
+                                                    <p className="text-[#2563EB] text-base font-bold tracking-[0.2em] uppercase">{item.company}</p>
+                                                    <p className="text-white/40 text-sm mt-1">{item.role}</p>
                                                 </div>
                                             </div>
                                         )}
