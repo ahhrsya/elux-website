@@ -578,6 +578,143 @@ export default function Testimonials() {
                 </div>
             </section>
 
+            {/* Testimonial 4 Section - Premium Bento Grid */}
+            <section id="testimonial-v4" className="bg-white pt-32 pb-48 px-4 md:px-8">
+                <div className="max-w-7xl mx-auto">
+                    {/* Header */}
+                    <div className="text-center mb-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="flex items-center justify-center gap-2 mb-4"
+                        >
+                            <svg className="w-5 h-5 text-[#2563EB]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                            </svg>
+                            <p className="text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase">
+                                Testimonial 4
+                            </p>
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-5xl lg:text-7xl font-display font-medium text-gray-900 leading-tight"
+                        >
+                            Why our customers love Elux
+                        </motion.h2>
+                    </div>
+
+                    {/* Bento Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px] md:auto-rows-[350px]">
+                        {/* 1. Metric/Text Card (Square) */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            className="bg-[#E9E4F0] rounded-[2rem] p-8 flex flex-col justify-start relative group overflow-hidden"
+                        >
+                            <span className="text-6xl font-display font-bold text-gray-900 mb-2">$500k</span>
+                            <p className="text-gray-600 text-sm font-medium uppercase tracking-wider">On hiring costs saved</p>
+                            <div className="absolute bottom-8 right-8 text-black/20 font-bold text-lg italic">✦ Elux</div>
+                        </motion.div>
+
+                        {/* 2. Logo/Text Card (Square) */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-[#F8F8F8] rounded-[2rem] p-8 flex items-center justify-center relative group overflow-hidden"
+                        >
+                            <div className="text-4xl font-display font-bold tracking-tighter text-black/80">Leica</div>
+                        </motion.div>
+
+                        {/* 3. Video Card (Rectangle - 2 cols) */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2 }}
+                            className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
+                        >
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200" alt="Marcus" className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="absolute inset-0 bg-black/20" />
+                            <div className="absolute bottom-8 left-8">
+                                <h4 className="text-white font-bold text-3xl mb-1">Marcus Thorne</h4>
+                                <p className="text-white/60 text-xs font-bold uppercase tracking-widest">Chief Operating Officer</p>
+                            </div>
+                            <div className="absolute bottom-8 right-8">
+                                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                    <svg className="w-5 h-5 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* 4. Large Text Card (Rectangle - 2 cols) */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="md:col-span-2 bg-[#D9DEE1] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden"
+                        >
+                            <p className="text-gray-900 text-2xl md:text-3xl font-medium leading-[1.3] tracking-tight">
+                                "We're able to test multiple messages in the market simultaneously. Our team is able to drive more SQLs. It's helping us scale as well."
+                            </p>
+                            <div>
+                                <h4 className="text-gray-900 font-bold text-lg">Ritika Sehgal</h4>
+                                <p className="text-gray-600 text-sm">Director of Marketing, Gupshup</p>
+                            </div>
+                        </motion.div>
+
+                        {/* 5. Video Card (Rectangle - 1 col) - Overriding user's request slightly to fit Bento grid better but keeping 3 videos total */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.4 }}
+                            className="rounded-[2rem] relative overflow-hidden group cursor-pointer"
+                        >
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Elena" className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="absolute inset-0 bg-black/30" />
+                            <div className="absolute bottom-6 left-6">
+                                <h4 className="text-white font-bold text-xl mb-1">Elena Rodriguez</h4>
+                                <p className="text-[#2563EB] text-[10px] font-bold uppercase tracking-widest">Solaris Tech</p>
+                            </div>
+                            <div className="absolute bottom-6 right-6">
+                                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                    <svg className="w-4 h-4 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* 6. Video Card (Rectangle - 1 col) */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.5 }}
+                            className="rounded-[2rem] relative overflow-hidden group cursor-pointer"
+                        >
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="David" className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="absolute inset-0 bg-black/30" />
+                            <div className="absolute bottom-6 left-6">
+                                <h4 className="text-white font-bold text-xl mb-1">David Kim</h4>
+                                <p className="text-[#2563EB] text-[10px] font-bold uppercase tracking-widest">CloudScale</p>
+                            </div>
+                            <div className="absolute bottom-6 right-6">
+                                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                    <svg className="w-4 h-4 text-white fill-current ml-0.5" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
             <style dangerouslySetInnerHTML={{
                 __html: `
                 .scrollbar-hide::-webkit-scrollbar { display: none; }
