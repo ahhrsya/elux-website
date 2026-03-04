@@ -615,7 +615,7 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
                         >
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200" alt="Marcus" className="absolute inset-0 w-full h-full object-cover" />
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200" alt="Marcus" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/20" />
                             <div className="absolute bottom-10 left-10">
                                 <h4 className="text-white font-bold text-4xl mb-1">Marcus Thorne</h4>
@@ -633,20 +633,30 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#E9E4F0] rounded-[2rem] p-10 flex flex-col justify-start relative group overflow-hidden"
+                            className="bg-[#E9E4F0] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden"
                         >
-                            <span className="text-7xl font-display font-bold text-gray-900 mb-2">$500k</span>
-                            <p className="text-gray-600 font-medium uppercase tracking-widest text-sm">Hiring costs saved per year</p>
-                            <div className="absolute bottom-10 right-10 text-black/10 font-bold text-2xl italic">✦ Elux</div>
+                            <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
+                                "Elux has revolutionized how we handle our backend operations. The automation they've implemented is seamless."
+                            </p>
+                            <div>
+                                <h4 className="text-gray-900 font-bold text-lg">Julianne Moore</h4>
+                                <p className="text-gray-600 text-sm">Ops Manager, Flow</p>
+                            </div>
                         </motion.div>
 
                         {/* Row 2: Text 2 (Square) + Video 2 (Rectangle) */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#F8F8F8] rounded-[2rem] p-10 flex items-center justify-center relative group overflow-hidden border border-gray-100"
+                            className="bg-[#F8F8F8] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden border border-gray-100"
                         >
-                            <div className="text-5xl font-display font-bold tracking-tighter text-black/80">Leica</div>
+                            <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
+                                "The level of customization and support we received was beyond expectations. A truly premium experience."
+                            </p>
+                            <div>
+                                <h4 className="text-gray-900 font-bold text-lg">Thomas Wright</h4>
+                                <p className="text-gray-600 text-sm">Founder, Wright & Co</p>
+                            </div>
                         </motion.div>
 
                         <motion.div
@@ -654,7 +664,7 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, y: 0 }}
                             className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
                         >
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Elena" className="absolute inset-0 w-full h-full object-cover" />
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Elena" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/30" />
                             <div className="absolute bottom-10 left-10">
                                 <h4 className="text-white font-bold text-4xl mb-1">Elena Rodriguez</h4>
@@ -669,13 +679,13 @@ export default function Testimonials() {
                             </div>
                         </motion.div>
 
-                        {/* Row 3: Video 3 (Rectangle) + Text 3 (Square/Small Rectangle) */}
+                        {/* Row 3: Video 3 (Rectangle) + Text 3 (Square) */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
                         >
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="David" className="absolute inset-0 w-full h-full object-cover" />
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="David" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/30" />
                             <div className="absolute bottom-10 left-10">
                                 <h4 className="text-white font-bold text-4xl mb-1">David Kim</h4>
@@ -695,8 +705,8 @@ export default function Testimonials() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             className="bg-[#D9DEE1] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden"
                         >
-                            <p className="text-gray-900 text-xl font-medium leading-[1.4] tracking-tight">
-                                "Helping us scale faster than any internal team could."
+                            <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
+                                "Helping us scale faster than any internal team could. Their expertise in automation is unmatched in the industry."
                             </p>
                             <div>
                                 <h4 className="text-gray-900 font-bold text-lg">Ritika Sehgal</h4>
