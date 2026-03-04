@@ -607,13 +607,13 @@ export default function Testimonials() {
                         </motion.h2>
                     </div>
 
-                    {/* Bento Grid - 3 Column Highlight Balance */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px] md:auto-rows-[400px]">
-                        {/* Row 1: Video 1 (Rectangle) + Text 1 (Square) */}
+                    {/* Bento Grid - 16:9 Video Aspect Ratio Focus */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* Row 1: Video 1 (16:9 Rectangle) + Text 1 (Square-ish) */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
+                            className="md:col-span-2 aspect-[16/9] rounded-[2rem] relative overflow-hidden group cursor-pointer"
                         >
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200" alt="Marcus" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/20" />
@@ -633,7 +633,7 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#E9E4F0] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden"
+                            className="bg-[#E9E4F0] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden h-full"
                         >
                             <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
                                 "Elux has revolutionized how we handle our backend operations. The automation they've implemented is seamless."
@@ -644,11 +644,11 @@ export default function Testimonials() {
                             </div>
                         </motion.div>
 
-                        {/* Row 2: Text 2 (Square) + Video 2 (Rectangle) */}
+                        {/* Row 2: Text 2 (Square-ish) + Video 2 (16:9 Rectangle) */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#F8F8F8] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden border border-gray-100"
+                            className="bg-[#F8F8F8] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden border border-gray-100 h-full"
                         >
                             <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
                                 "The level of customization and support we received was beyond expectations. A truly premium experience."
@@ -662,7 +662,7 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
+                            className="md:col-span-2 aspect-[16/9] rounded-[2rem] relative overflow-hidden group cursor-pointer"
                         >
                             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800" alt="Elena" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/30" />
@@ -679,11 +679,11 @@ export default function Testimonials() {
                             </div>
                         </motion.div>
 
-                        {/* Row 3: Video 3 (Rectangle) + Text 3 (Square) */}
+                        {/* Row 3: Video 3 (16:9 Rectangle) + Text 3 (Square-ish) */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="md:col-span-2 rounded-[2rem] relative overflow-hidden group cursor-pointer"
+                            className="md:col-span-2 aspect-[16/9] rounded-[2rem] relative overflow-hidden group cursor-pointer"
                         >
                             <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="David" className="absolute inset-0 w-full h-full object-cover object-center" />
                             <div className="absolute inset-0 bg-black/30" />
@@ -703,7 +703,7 @@ export default function Testimonials() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            className="bg-[#D9DEE1] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden"
+                            className="bg-[#D9DEE1] rounded-[2rem] p-10 flex flex-col justify-between relative group overflow-hidden h-full"
                         >
                             <p className="text-gray-900 text-lg font-medium leading-[1.6] tracking-tight">
                                 "Helping us scale faster than any internal team could. Their expertise in automation is unmatched in the industry."
