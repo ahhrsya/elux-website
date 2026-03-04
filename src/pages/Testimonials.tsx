@@ -464,6 +464,139 @@ export default function Testimonials() {
                 </div>
             </section>
 
+            {/* Testimonial 3 Section - Quiet Impact (Premium Grid) */}
+            <section className="bg-black pt-32 pb-48 px-4 md:px-8">
+                <div className="max-w-7xl mx-auto">
+                    {/* Unique Premium Header */}
+                    <div className="mb-20">
+                        <motion.p
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="text-[10px] font-bold tracking-[0.4em] text-[#2563EB] uppercase mb-8"
+                        >
+                            Testimonial 3
+                        </motion.p>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-5xl md:text-7xl lg:text-8xl font-display font-medium leading-[1.1]"
+                        >
+                            <span className="text-white block">Quiet impact.</span>
+                            <span className="text-zinc-600 block">Verifiable legal outcomes.</span>
+                        </motion.h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            {
+                                type: 'text',
+                                logo: '✦ Simmons',
+                                quote: "Through our partnership with Elux, we've embedded agents that handle the design, review, and logic of our complex systems autonomously.",
+                                name: "Lucy Shurwood",
+                                role: "Partner, Simmons & Simmons",
+                                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+                            },
+                            {
+                                type: 'video',
+                                name: "Marcus Thorne",
+                                company: "Aventi Corp",
+                                thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
+                                videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+                            },
+                            {
+                                type: 'text',
+                                logo: '● Velo',
+                                quote: "The ability to scale our creative production with Elux has been a game changer for our global marketing teams. Pure efficiency.",
+                                name: "Sarah Chen",
+                                role: "Global Creative Director",
+                                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+                            },
+                            {
+                                type: 'video',
+                                name: "Elena Rodriguez",
+                                company: "Solaris Tech",
+                                thumbnail: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800",
+                                videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+                            },
+                            {
+                                type: 'text',
+                                logo: '■ Nexus',
+                                quote: "Elux doesn't just build interfaces; they build systems that think. Our user engagement metrics have skyrocketed since the relaunch.",
+                                name: "James Wilson",
+                                role: "CEO, Nexus Digital",
+                                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
+                            },
+                            {
+                                type: 'video',
+                                name: "David Kim",
+                                company: "CloudScale",
+                                thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+                                videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+                            }
+                        ].map((item, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className={`relative rounded-2xl overflow-hidden bg-[#111111] border border-white/5 group ${item.type === 'text' ? 'aspect-square md:aspect-auto md:h-[450px]' : 'aspect-[3/4]'}`}
+                            >
+                                {item.type === 'text' ? (
+                                    <div className="h-full flex relative">
+                                        {/* Left Side: Quote */}
+                                        <div className="w-1/2 p-8 flex flex-col justify-between">
+                                            <div>
+                                                <div className="bg-zinc-800/50 w-fit px-3 py-1.5 rounded-md text-xs font-bold text-white/80 mb-12">
+                                                    {item.logo}
+                                                </div>
+                                                <p className="text-white text-lg font-medium leading-relaxed tracking-tight">
+                                                    "{item.quote}"
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-white font-bold text-sm tracking-wide">{item.name}</h4>
+                                                <p className="text-zinc-500 text-xs mt-1">{item.role}</p>
+                                            </div>
+                                        </div>
+                                        {/* Right Side: Image */}
+                                        <div className="w-1/2 relative">
+                                            <div className="absolute inset-0 bg-gradient-to-r from-[#111111] to-transparent z-10 w-24" />
+                                            <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="h-full w-full relative group cursor-pointer">
+                                        <img src={item.thumbnail} alt={item.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+                                        {/* Play Icon */}
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
+                                                <svg className="w-6 h-6 text-white fill-current ml-1" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        {/* Overlays */}
+                                        <div className="absolute bottom-8 left-8">
+                                            <h4 className="text-white font-bold text-2xl tracking-tight leading-none mb-2">{item.name}</h4>
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
+                                                <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest">{item.company}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <style dangerouslySetInnerHTML={{
                 __html: `
                 .scrollbar-hide::-webkit-scrollbar { display: none; }
