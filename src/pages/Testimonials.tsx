@@ -47,22 +47,6 @@ const v3Testimonials = [
         videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
     },
     {
-        type: 'video',
-        name: "Elena Rodriguez",
-        company: "Solaris Tech",
-        role: "Head of Marketing",
-        thumbnail: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800",
-        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
-    },
-    {
-        type: 'video',
-        name: "David Kim",
-        company: "CloudScale",
-        role: "Product Manager",
-        thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
-    },
-    {
         type: 'text',
         logo: 'simmons',
         quote: "Through our partnership with Elux, we've embedded agents that handle the drafting and negotiation of complex NDAs and service agreements autonomously.",
@@ -71,12 +55,28 @@ const v3Testimonials = [
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
     },
     {
+        type: 'video',
+        name: "Elena Rodriguez",
+        company: "Solaris Tech",
+        role: "Head of Marketing",
+        thumbnail: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800",
+        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+    },
+    {
         type: 'text',
         logo: 'velo',
         quote: "Scaling our creative production with Elux has been a game changer. We achieved seamless integration and high-impact outcomes across our global teams.",
         name: "Sarah Chen",
         role: "Global Creative Director, Velo",
         image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        type: 'video',
+        name: "David Kim",
+        company: "CloudScale",
+        role: "Product Manager",
+        thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
     },
     {
         type: 'text',
@@ -393,7 +393,7 @@ export default function Testimonials() {
                                         initial={false}
                                         animate={{ x, scale, opacity, zIndex }}
                                         transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                                        className="absolute w-[80%] md:w-[750px] aspect-[16/9.5] rounded-2xl overflow-hidden shadow-2xl bg-[#1A1A1A] border border-white/5"
+                                        className="absolute w-[90%] md:w-[850px] aspect-[16/8] rounded-2xl overflow-hidden shadow-2xl bg-[#1A1A1A] border border-white/5"
                                     >
                                         <img src={item.thumb} alt={item.name} className="w-full h-full object-cover" />
                                         {displayIndex === 1 && (
