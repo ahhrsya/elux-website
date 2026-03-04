@@ -37,11 +37,63 @@ const testimonials: Testimonial[] = [
     },
 ];
 
+const v3Testimonials = [
+    {
+        type: 'text',
+        logo: 'simmons',
+        quote: "Through our partnership with Elux, we've embedded agents that [autonomously] handle the drafting, review, and negotiation of NDAs, DPAs, service agreements, IMAs, and more. These agents are live and already delivering real impact.",
+        name: "Lucy Shurwood",
+        role: "Partner, Simmons & Simmons",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        type: 'video',
+        name: "Marcus Thorne",
+        company: "Aventi Corp",
+        role: "Chief Operating Officer",
+        thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
+        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+    },
+    {
+        type: 'text',
+        logo: 'velo',
+        quote: "The ability to scale our creative production with Elux has been a game changer for our global marketing teams. Pure efficiency and strategic outcomes at every level of our workflow.",
+        name: "Sarah Chen",
+        role: "Global Creative Director, Velo",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        type: 'video',
+        name: "Elena Rodriguez",
+        company: "Solaris Tech",
+        role: "Head of Marketing",
+        thumbnail: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800",
+        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+    },
+    {
+        type: 'text',
+        logo: 'nexus',
+        quote: "Elux doesn't just build interfaces; they build systems that think. Our user engagement metrics have skyrocketed since the relaunch, and the maintenance is now virtually automated.",
+        name: "James Wilson",
+        role: "CEO, Nexus Digital",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
+    },
+    {
+        type: 'video',
+        name: "David Kim",
+        company: "CloudScale",
+        role: "Product Manager",
+        thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+        videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
+    }
+];
+
 export default function Testimonials() {
     const [activeIndex1, setActiveIndex1] = useState(0);
     const [activeIndex2, setActiveIndex2] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
 
     const nextTestimonial1 = (e?: React.MouseEvent) => {
         if (e) e.stopPropagation();
@@ -57,6 +109,13 @@ export default function Testimonials() {
 
     const nextTestimonial2 = () => setActiveIndex2((prev) => (prev + 1) % 3);
     const prevTestimonial2 = () => setActiveIndex2((prev) => (prev - 1 + 3) % 3);
+
+    const scrollCarousel = (direction: 'left' | 'right') => {
+        if (carouselRef.current) {
+            const scrollAmount = direction === 'left' ? -800 : 800;
+            carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
 
     const togglePlay = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -77,7 +136,7 @@ export default function Testimonials() {
     return (
         <main className="bg-[#F9FAFB] overflow-x-hidden">
             {/* Testimonial 1 Section */}
-            <section className="pt-32 pb-24 px-4 md:px-8">
+            <section id="testimonial-v1" className="pt-32 pb-24 px-4 md:px-8 bg-[#F9FAFB]">
                 <div className="max-w-7xl mx-auto">
                     {/* Header Section */}
                     <div className="text-center mb-16">
@@ -209,7 +268,7 @@ export default function Testimonials() {
                         </motion.button>
                     </div>
 
-                    {/* Static Cards Testimonial 1 */}
+                    {/* Static Cards */}
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
@@ -259,8 +318,8 @@ export default function Testimonials() {
                 </div>
             </section>
 
-            {/* Testimonial 2 Section - Dark Replica */}
-            <section className="bg-[#0A0A0A] pt-32 pb-48 px-4 md:px-8 overflow-hidden">
+            {/* Testimonial 2 Section */}
+            <section id="testimonial-v2" className="bg-[#0A0A0A] pt-32 pb-48 px-4 md:px-8 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-16">
@@ -334,31 +393,12 @@ export default function Testimonials() {
                                         initial={false}
                                         animate={{ x, scale, opacity, zIndex }}
                                         transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                                        onClick={() => {
-                                            if (displayIndex === 0) prevTestimonial2();
-                                            if (displayIndex === 2) nextTestimonial2();
-                                        }}
-                                        className="absolute w-[80%] md:w-[750px] aspect-[16/9.5] rounded-2xl overflow-hidden cursor-pointer shadow-2xl bg-[#1A1A1A] border border-white/5"
+                                        className="absolute w-[80%] md:w-[750px] aspect-[16/9.5] rounded-2xl overflow-hidden shadow-2xl bg-[#1A1A1A] border border-white/5"
                                     >
                                         <img src={item.thumb} alt={item.name} className="w-full h-full object-cover" />
                                         {displayIndex === 1 && (
                                             <>
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                                <div className="absolute top-6 left-8 flex items-center gap-2">
-                                                    <div className="w-7 h-7 rounded-full bg-[#2563EB] flex items-center justify-center p-1">
-                                                        <svg className="w-full h-full text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                                        </svg>
-                                                    </div>
-                                                    <span className="text-white font-bold text-xs tracking-widest">eluxspace</span>
-                                                </div>
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <div className="w-16 h-11 bg-red-600 rounded-lg flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-                                                        <svg className="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
-                                                            <path d="M8 5v14l11-7z" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
                                                 <div className="absolute bottom-8 left-8 flex border-l-2 border-white pl-5">
                                                     <div>
                                                         <h3 className="text-2xl font-bold text-white mb-0.5">{item.name}</h3>
@@ -366,21 +406,7 @@ export default function Testimonials() {
                                                         <p className="text-white/60 text-xs mt-0.5">{item.location}</p>
                                                     </div>
                                                 </div>
-                                                <div className="absolute bottom-8 right-8 text-white/40 text-[10px] font-medium italic">
-                                                    Courtesy of Elux Space
-                                                </div>
-                                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-                                                    {[0, 1, 2].map((dot) => (
-                                                        <div key={dot} className={`w-1.5 h-1.5 rounded-full transition-all ${dot === activeIndex2 % 3 ? 'bg-white w-3.5' : 'bg-white/30'}`} />
-                                                    ))}
-                                                </div>
                                             </>
-                                        )}
-                                        {displayIndex !== 1 && (
-                                            <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-8">
-                                                <p className="text-white/40 text-[10px] font-medium italic">Courtesy of Elux Space</p>
-                                                <h4 className="text-white text-lg font-bold mt-1">{item.name}</h4>
-                                            </div>
                                         )}
                                     </motion.div>
                                 );
@@ -388,51 +414,26 @@ export default function Testimonials() {
                         </div>
                     </div>
 
-                    {/* Blue Navigation Buttons */}
+                    {/* Navigation Buttons */}
                     <div className="flex justify-center gap-4 mb-12">
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={prevTestimonial2}
-                            className="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white shadow-lg"
-                        >
+                        <button onClick={prevTestimonial2} className="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white shadow-lg">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
-                        </motion.button>
-                        <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={nextTestimonial2}
-                            className="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white shadow-lg"
-                        >
+                        </button>
+                        <button onClick={nextTestimonial2} className="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white shadow-lg">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
-                        </motion.button>
+                        </button>
                     </div>
 
-                    {/* Integrated Static Cards Testimonial 2 (Dark) */}
+                    {/* Integrated Static Cards (V2) */}
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
-                            {
-                                name: "Udy Joe",
-                                avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200",
-                                rating: 5,
-                                text: "For those who need AI and multi-functional chatbots, definitely add this to your collection. Truly versatile and useful tool for productivity!",
-                            },
-                            {
-                                name: "Hianto Mateus",
-                                avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=200",
-                                rating: 5,
-                                text: "The improvement in my productivity, I won't even comment on. The features are enough for all my needs. Thank you for existing!",
-                            },
-                            {
-                                name: "Miyamoto Musashi",
-                                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
-                                rating: 5,
-                                text: "BIG thanks to Elux! I'm incredibly helped by its super duper many features. Cool, it's All in 1. Most impressive agency I've used.",
-                            }
+                            { name: "Udy Joe", avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=200", rating: 5, text: "Truly versatile and useful tool for productivity!" },
+                            { name: "Hianto Mateus", avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=200", rating: 5, text: "The features are enough for all my needs. Thank you for existing!" },
+                            { name: "Miyamoto Musashi", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200", rating: 5, text: "Most impressive agency I've used. Constant updates and great support." }
                         ].map((card, i) => (
                             <motion.div
                                 key={i}
@@ -455,144 +456,124 @@ export default function Testimonials() {
                                         </div>
                                     </div>
                                 </div>
-                                <p className="text-white/60 text-[15px] leading-relaxed italic">
-                                    "{card.text}"
-                                </p>
+                                <p className="text-white/60 text-[15px] leading-relaxed italic">"{card.text}"</p>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Testimonial 3 Section - Quiet Impact (Premium Grid) */}
-            <section className="bg-black pt-32 pb-48 px-4 md:px-8">
+            {/* Testimonial 3 Section */}
+            <section id="testimonial-v3" className="bg-[#0A0A0A] pt-32 pb-48 px-4 md:px-8 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
-                    {/* Unique Premium Header */}
-                    <div className="mb-20">
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="text-[10px] font-bold tracking-[0.4em] text-[#2563EB] uppercase mb-8"
-                        >
-                            Testimonial 3
-                        </motion.p>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 30 }}
+                    {/* Header - V1 Style */}
+                    <div className="text-center mb-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-5xl md:text-7xl lg:text-8xl font-display font-medium leading-[1.1]"
+                            className="flex items-center justify-center gap-2 mb-4"
                         >
-                            <span className="text-white block">Quiet impact.</span>
-                            <span className="text-zinc-600 block">Verifiable legal outcomes.</span>
+                            <svg className="w-5 h-5 text-[#2563EB]" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                            </svg>
+                            <p className="text-xs font-bold tracking-[0.2em] text-[#2563EB] uppercase">
+                                Testimonial 3
+                            </p>
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-5xl lg:text-7xl font-display font-medium text-white leading-tight"
+                        >
+                            Why our customers love Elux
                         </motion.h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            {
-                                type: 'text',
-                                logo: '✦ Simmons',
-                                quote: "Through our partnership with Elux, we've embedded agents that handle the design, review, and logic of our complex systems autonomously.",
-                                name: "Lucy Shurwood",
-                                role: "Partner, Simmons & Simmons",
-                                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-                            },
-                            {
-                                type: 'video',
-                                name: "Marcus Thorne",
-                                company: "Aventi Corp",
-                                thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200",
-                                videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
-                            },
-                            {
-                                type: 'text',
-                                logo: '● Velo',
-                                quote: "The ability to scale our creative production with Elux has been a game changer for our global marketing teams. Pure efficiency.",
-                                name: "Sarah Chen",
-                                role: "Global Creative Director",
-                                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
-                            },
-                            {
-                                type: 'video',
-                                name: "Elena Rodriguez",
-                                company: "Solaris Tech",
-                                thumbnail: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800",
-                                videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
-                            },
-                            {
-                                type: 'text',
-                                logo: '■ Nexus',
-                                quote: "Elux doesn't just build interfaces; they build systems that think. Our user engagement metrics have skyrocketed since the relaunch.",
-                                name: "James Wilson",
-                                role: "CEO, Nexus Digital",
-                                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
-                            },
-                            {
-                                type: 'video',
-                                name: "David Kim",
-                                company: "CloudScale",
-                                thumbnail: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-                                videoUrl: "https://player.vimeo.com/external/494252666.sd.mp4?s=72ce12da43194090288eb1f86851b43952ecae68&profile_id=164&oauth_token_id=57447761"
-                            }
-                        ].map((item, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className={`relative rounded-2xl overflow-hidden bg-[#111111] border border-white/5 group ${item.type === 'text' ? 'aspect-square md:aspect-auto md:h-[450px]' : 'aspect-[3/4]'}`}
-                            >
-                                {item.type === 'text' ? (
-                                    <div className="h-full flex relative">
-                                        {/* Left Side: Quote */}
-                                        <div className="w-1/2 p-8 flex flex-col justify-between">
-                                            <div>
-                                                <div className="bg-zinc-800/50 w-fit px-3 py-1.5 rounded-md text-xs font-bold text-white/80 mb-12">
-                                                    {item.logo}
+                    {/* Horizontal Carousel (1 Baris) */}
+                    <div className="relative">
+                        <div
+                            ref={carouselRef}
+                            className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory pb-8"
+                        >
+                            {v3Testimonials.map((item, i) => (
+                                <div key={i} className="flex-shrink-0 w-[95%] md:w-[850px] snap-center">
+                                    <div className="bg-[#111111] rounded-2xl border border-white/5 p-6 h-[400px] md:h-[480px] flex gap-6 relative group overflow-hidden">
+                                        {item.type === 'text' ? (
+                                            <>
+                                                {/* Card Content Top Left - Precisely like screenshot */}
+                                                <div className="flex-1 flex flex-col justify-between">
+                                                    <div>
+                                                        {/* Logo Box */}
+                                                        <div className="bg-[#1a1a1a] rounded-lg p-3 w-fit mb-12 border border-white/5">
+                                                            <div className="text-[10px] font-bold text-white uppercase leading-none">
+                                                                #{item.logo}<br />{item.logo}
+                                                            </div>
+                                                        </div>
+                                                        {/* Quote */}
+                                                        <p className="text-white text-xl md:text-2xl font-medium leading-relaxed tracking-tight max-w-[90%]">
+                                                            "{item.quote}"
+                                                        </p>
+                                                    </div>
+                                                    {/* Author */}
+                                                    <div>
+                                                        <h4 className="text-white font-bold text-lg">{item.name}</h4>
+                                                        <p className="text-zinc-500 text-sm mt-1">{item.role}</p>
+                                                    </div>
                                                 </div>
-                                                <p className="text-white text-lg font-medium leading-relaxed tracking-tight">
-                                                    "{item.quote}"
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <h4 className="text-white font-bold text-sm tracking-wide">{item.name}</h4>
-                                                <p className="text-zinc-500 text-xs mt-1">{item.role}</p>
-                                            </div>
-                                        </div>
-                                        {/* Right Side: Image */}
-                                        <div className="w-1/2 relative">
-                                            <div className="absolute inset-0 bg-gradient-to-r from-[#111111] to-transparent z-10 w-24" />
-                                            <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="h-full w-full relative group cursor-pointer">
-                                        <img src={item.thumbnail} alt={item.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                                                {/* Right Image */}
+                                                <div className="w-[45%] h-full relative overflow-hidden rounded-2xl">
+                                                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <div className="w-full h-full relative group">
+                                                <img src={item.thumbnail} alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                                <div className="absolute inset-0 bg-black/40" />
 
-                                        {/* Play Icon */}
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
-                                                <svg className="w-6 h-6 text-white fill-current ml-1" viewBox="0 0 24 24">
-                                                    <path d="M8 5v14l11-7z" />
-                                                </svg>
-                                            </div>
-                                        </div>
+                                                {/* Play Button */}
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20">
+                                                        <svg className="w-6 h-6 text-white fill-current ml-1" viewBox="0 0 24 24">
+                                                            <path d="M8 5v14l11-7z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
 
-                                        {/* Overlays */}
-                                        <div className="absolute bottom-8 left-8">
-                                            <h4 className="text-white font-bold text-2xl tracking-tight leading-none mb-2">{item.name}</h4>
-                                            <div className="flex items-center gap-2">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-                                                <p className="text-zinc-400 text-sm font-medium uppercase tracking-widest">{item.company}</p>
+                                                {/* Info Overlay */}
+                                                <div className="absolute bottom-10 left-10">
+                                                    <h4 className="text-white font-bold text-3xl mb-2">{item.name}</h4>
+                                                    <p className="text-[#2563EB] text-sm font-bold tracking-[0.2em] uppercase">{item.company}</p>
+                                                    <p className="text-white/40 text-xs mt-1">{item.role}</p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
-                                )}
-                            </motion.div>
-                        ))}
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Navigation Arrows */}
+                        <div className="flex justify-center gap-4 mt-8">
+                            <button
+                                onClick={() => scrollCarousel('left')}
+                                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-all bg-[#111111]"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button
+                                onClick={() => scrollCarousel('right')}
+                                className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-all bg-[#111111]"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -601,6 +582,7 @@ export default function Testimonials() {
                 __html: `
                 .scrollbar-hide::-webkit-scrollbar { display: none; }
                 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+                .scroll-smooth { scroll-behavior: smooth; }
             `}} />
         </main>
     );
